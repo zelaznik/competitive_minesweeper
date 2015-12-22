@@ -14,16 +14,22 @@
       </div>
 
       <div class="game">
-        <canvas id="canvas" width="800" height="600" />
+        <canvas id="canvas" />
       </div>
+
+      <div class="footer">
+        <p>Copyright (C) 2015 Zelaznik Industries</p>
+      </div>
+
     </div>
+
 
     <script>
       $(document).ready(function() {
         var canvas = document.getElementById('canvas');
         var c = canvas.getContext('2d');
         c.fillStyle = '#aaaaaa';
-        c.fillRect(0, 0, 100, 100);
+        c.fillRect(0, 0, 1000, 1000);
 
         $('#timer-start').on('click', function() {
           alert("Start");
