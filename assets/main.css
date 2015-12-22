@@ -1,14 +1,9 @@
 #main {
   background-color: #ddd;
-  width: 600px;
+  /* 600px;*/
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-}
-
-#canvas {
-  width: 500px;
-  height: 320px;
 }
 
 .footer {
