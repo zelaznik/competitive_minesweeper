@@ -1,0 +1,16 @@
+#main {
+  background-color: #ddd;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.controls {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.game {
+  text-align: center;
+}

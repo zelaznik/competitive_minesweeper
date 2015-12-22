@@ -1,16 +1,40 @@
 <html>
-  <style>
-    body {
-      background-color: #008;
-      offset: 0px;
-      padding: 0px;
-      border: 0px;
-      margin: 0px;
-      display: inline-block;
-    }
-  </style>
+  <head>
+    <link rel="stylesheet" type="text/css" href="assets/main.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js" ></script>
+    <script src="scripts/main.js"></script>
+  </head>
 
   <body>
-    <img src="assets/0.png"><img src="assets/1.png"><img src="assets/2.png"><img src="assets/3.png"><img src="assets/4.png"><br><img src="assets/5.png"><img src="assets/6.png"><img src="assets/7.png"><img src="assets/8.png"><img src="assets/9.png">
+    <div id="main">
+      <div class="controls">
+        <button id="timer-start">Start</button>
+        <button id="timer-stop">Stop</button>
+        <button id="timer-reset">Reset</button>
+      </div>
+
+      <div class="game">
+        <canvas id="canvas" width="800" height="600" />
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function() {
+        var canvas = document.getElementById('canvas');
+        var c = canvas.getContext('2d');
+        c.fillStyle = '#aaaaaa';
+        c.fillRect(0, 0, 100, 100);
+
+        $('#timer-start').on('click', function() {
+          alert("Start");
+        });
+        $('#timer-stop').on('click', function() {
+          alert("Stop");
+        });
+        $('#timer-reset').on('click', function() {
+          alert("Reset");
+        });
+      });
+    </script>
   </body>
-</hml>
+</html>
