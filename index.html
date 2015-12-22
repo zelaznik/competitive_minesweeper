@@ -40,8 +40,12 @@
           var digital = new Digital({
             img: img, width: 52, height: 92
           });
-          digital.draw(ctx, 13);
-        }.bind(this));
+          var timer = window.timer = new Timer({digital: digital, ctx: ctx});
+          $("#timer-start").on('click', timer.start.bind(timer));
+          $("#timer-stop").on('click', timer.stop.bind(timer));
+          $("#timer-reset").on('click', timer.reset.bind(timer));
+          timer.draw(ctx);
+        });
       });
     </script>
   </body>
