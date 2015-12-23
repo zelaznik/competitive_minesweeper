@@ -1,7 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="assets/main.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
     <script type="text/javascript" src="lib/utils.js"></script>
     <script type="text/javascript" src="lib/grid.js"></script>
     <script type="text/javascript" src="lib/mineField.js"></script>
@@ -32,11 +32,9 @@
     </div>
 
     <script>
-      $(document).ready(function() {
-        prepare({
-          document: document,
-          canvas: document.getElementById('canvas')
-        });
+      document.addEventListener("DOMContentLoaded", function() {
+        var canvas = document.getElementById('canvas');
+        prepare({document: document, canvas: canvas});
       });
     </script>
   </body>
