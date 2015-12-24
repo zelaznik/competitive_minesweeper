@@ -17,9 +17,7 @@
   <body>
     <div id="main">
       <div class="controls">
-        <button id="timer-start">Start</button>
-        <button id="timer-stop">Stop</button>
-        <button id="timer-reset">Reset</button>
+        <button id="game-reset">Reset</button>
       </div>
 
       <div class="game">
@@ -33,8 +31,11 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function() {
-        var canvas = document.getElementById('canvas');
-        prepare({document: document, canvas: canvas});
+        prepare({
+          document: document,
+          canvas: document.getElementById('canvas'),
+          resetButton: document.getElementById('game-reset')
+        });
       });
     </script>
   </body>
