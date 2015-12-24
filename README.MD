@@ -12,6 +12,7 @@ DONE      Get the board to reset properly.
           Get the buttons to press down on mousedown.
           First square cannot be a mine.
           Do not allow dual clicking after game over.
+          Make sure the final sweep still updates the mine counter.
 
 DONE      Do not allow a right click to start the game.
 DONE      Get the board to flag all remaining mines.
