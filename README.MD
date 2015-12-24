@@ -10,8 +10,8 @@ DONE      Get the board to reset properly.
           Do not allow dual clicking unless the correct number of flags have been selected.
           Push to Heroku.
           Get the buttons to press down on mousedown.
-          First square cannot be a mine.
-          Do not allow dual clicking after game over.
+DONE      First square cannot be a mine.
+DONE      Do not allow dual clicking after game over.
           Make sure the final sweep still updates the mine counter.
 
 DONE      Do not allow a right click to start the game.
