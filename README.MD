@@ -8,6 +8,7 @@ DONE      Get the board to reset properly.
           Get the decimals to display in the numbers.
           Get the decimals to display negative numbers.
           Push to Heroku.
+          Get the buttons to press down on mousedown.
 
 DONE      Do not allow a right click to start the game.
 DONE      Get the board to flag all remaining mines.
