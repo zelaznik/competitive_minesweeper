@@ -17,3 +17,5 @@ DONE      Do not allow dual clicking after game over.
 DONE      Do not allow a right click to start the game.
 DONE      Get the board to flag all remaining mines.
 DONE      Do not allow squares to be declared outside the appropriate range.
+          Have an undone right-click not highlight the original cell.
+          
