@@ -1,22 +1,21 @@
 # Minesweeper in Javascript
 
-To Do:
-          Get the user to be able to adjust various settings.
-          Get the decimals to display in the numbers.
-          Get the decimals to display negative numbers.
-          Push to Heroku.
-          Make sure the final sweep still updates the mine counter.
-          Have an undone right-click not highlight the original cell.
+## To Do:
+  - Get the user to be able to adjust various settings.
+  - Get the decimals to display in the numbers.
+  - Get the decimals to display negative numbers.
+  - Make sure the final sweep still updates the mine counter.
+  - Have an undone right-click not highlight the original cell.
 
-Done:
-
-DONE      Get the false flags to be raised.
-DONE      Get the timer to start again with a new game.
-DONE      Get the board to reset properly.
-DONE      Do not allow a right click to start the game.
-DONE      Get the board to flag all remaining mines.
-DONE      Do not allow squares to be declared outside the appropriate range.
-DONE      Do not allow dual clicking unless the correct number of flags have been selected.
-DONE      Get the buttons to press down on mousedown.
-DONE      First square cannot be a mine.
-DONE      Do not allow dual clicking after game over.
+## Done:
+  - Push to Heroku.
+  - Get the false flags to be raised.
+  - Get the timer to start again with a new game.
+  - Get the board to reset properly.
+  - Do not allow a right click to start the game.
+  - Get the board to flag all remaining mines.
+  - Do not allow squares to be declared outside the appropriate range.
+  - Do not allow dual clicking unless the correct number of flags have been selected.
+  - Get the buttons to press down on mousedown.
+  - First square cannot be a mine.
+  - Do not allow dual clicking after game over.
