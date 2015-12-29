@@ -8,10 +8,11 @@ var window = window || this;
   var mineFieldProxy = window.mineFieldProxy;
 
   var Game = window.Game = function Game(options) {
-    options = options || {};
-    options.rowCt = options.rowCt || Game.ROW_CT;
-    options.colCt = options.colCt || Game.COL_CT;
-    options.mineCt = options.mineCt || Game.MINE_CT;
+    var level = Game.levels[options.level] || {};
+    options.rowCt = options.rowCt || level.rowCt;
+    options.colCt = options.colCt || level.colCt;
+    options.mineCt = options.mineCt || level.mineCt;
+
     this.options = options;
     Grid.call(this, options);
 
@@ -25,9 +26,14 @@ var window = window || this;
     this.over = false;
   };
 
-  Game.ROW_CT = 16;
-  Game.COL_CT = 16;
-  Game.MINE_CT = 40;
+  Game.levels = {
+    undefined:      {rowCt: 16, colCt: 16, mineCt: 40},
+
+    'beginner':     {rowCt:  9, colCt:  9, mineCt: 10},
+    'intermediate': {rowCt: 16, colCt: 16, mineCt: 40},
+    'expert':       {rowCt: 16, colCt: 30, mineCt: 99},
+      'demo':       {rowCt: 16, colCt: 30, mineCt: 40},
+  };
 
   Game.inherits(Grid, {
     /*****************************

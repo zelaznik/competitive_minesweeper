@@ -1,13 +1,26 @@
 <html>
 
   <head>
+    <!-- For sharing on social media -->
     <meta property="og:type"  content="game" />
     <meta property="og:title" content="Competitive Minesweeper" />
     <meta property="og:url"   content="http://222competitive-minesweeper.herokuapp.com" />
     <meta property="og:image" content="http://competitive-minesweeper.herokuapp.com/images/preview.jpg" />
     <meta property="fb:app_id" content="1034010236642431" />
 
+    <!-- For pre-fab menubar -->
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Competitive Minesweeper Online</title>
+
+    <!-- jQuery + menu bar -->
+    <link rel="stylesheet" href="css/menu.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="js/prepare_menu.js"></script>
+
+    <!-- Minesweeper styling and logic -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
     <script type="text/javascript" src="js/utils.js"></script>
@@ -41,14 +54,22 @@
        }(document, 'script', 'facebook-jssdk'));
     </script>
 
+    <div id='cssmenu'>
+     <ul>
+        <li class="level-choice" name="beginner"><a href='#'><span>Beginner</span></a></li>
+        <li class="level-choice" name="intermediate"><a href='#'><span>Intermediate</span></a></li>
+        <li class="level-choice" name="expert"><a href='#'><span>Expert</span></a></li>
+        <li class="level-choice active" name="demo"><a href="#"><span>Demo</span></a></li>
+     </ul>
+    </div>
+
     <div id="main">
-      <div class="aux">
+      <div id="aux" class="aux">
         <div class='aux-item score-canvas'>
           <canvas id="score-canvas"></canvas>
         </div>
 
-        <div id="reset-button" class="aux-item faces">
-          <!-- <button id="reset-button">Reset</button> -->
+        <div id="faces-button" class="aux-item faces">
         </div>
 
         <div class='aux-item timer-canvas'>
@@ -68,11 +89,13 @@
       document.addEventListener("DOMContentLoaded", function() {
         prepare({
           document: document,
+          // aux: document.getElementById('aux'),
           main: document.getElementById('main'),
+          menu: document.getElementById("cssmenu"),
           canvas: document.getElementById('game-canvas'),
           timer_canvas: document.getElementById('timer-canvas'),
           score_canvas: document.getElementById('score-canvas'),
-          resetButton: document.getElementById('reset-button')
+          resetButton: document.getElementById('faces-button')
         });
       });
     </script>

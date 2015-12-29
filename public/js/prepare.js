@@ -12,10 +12,12 @@
       var view = window.view = new View({
         document: options.document,
         canvas: options.canvas,
+        menu: options.menu,
         timer_canvas: options.timer_canvas,
         score_canvas: options.score_canvas,
         resetButton: options.resetButton,
         main: options.main,
+        // aux: options.aux,
         files: {
           'digits': imgDigits, 'faces': imgFaces, 'tiles': imgTiles
         }

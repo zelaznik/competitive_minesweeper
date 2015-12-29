@@ -23,6 +23,7 @@ body {
 }
 
 .aux {
+  min-width: 200px;
   padding: 20px 0px 0px 0px;
 }
 

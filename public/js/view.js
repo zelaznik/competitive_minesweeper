@@ -5,7 +5,9 @@ var window = window || this;
 
   var View = window.View = function View(options) {
     this.options = options = options || {};
-    this.game = options.game = new Game(options.gameSettings);
+
+    var choice = options.menu.getElementsByClassName('active level-choice')[0];
+    this.game = options.game = new Game({level: choice.getAttribute('name')});
 
     this.storeSettings(options);
     this.addSubViews(options);
@@ -16,11 +18,24 @@ var window = window || this;
     this.renderInitialView(options);
   };
 
+  View.zoom = {
+    tiles: {
+      'beginner': 1.25
+    },
+    digital: {
+
+    }
+  };
+  // View.zoom = {
+  //   'beginner': {'tiles': 1.00, 'digital': }
+  // };
   View.dt = 0.05;
 
   View.prototype = ({
     storeSettings: function(options) {
+      // this.aux = options.aux;
       this.main = options.main;
+      this.menu = options.menu;
       this.timer_canvas = options.timer_canvas;
       this.score_canvas = options.score_canvas;
 
@@ -30,45 +45,38 @@ var window = window || this;
     },
 
     addSubViews: function(options) {
-      var digitalOptions = {
+      var zd = View.zoom.digital[options.level] || 1;
+      var digitalOptions = $.extend({
         img: options.files.digits,
         srcWidth: 52, srcHeight: 92,
-        dstWidth: 18, dstHeight: 36,
+        dstWidth: zd*18, dstHeight: zd*36,
         game: options.game,
         ctx: options.ctx,
         digitCt: 5
-      };
+      }, {});
 
-      this.timer = new Timer({
-        img: options.files.digits,
-        srcWidth: 52, srcHeight: 92,
-        dstWidth: 18, dstHeight: 36,
-        canvas: options.timer_canvas,
-        game: options.game,
-        digitCt: 5
-      });
+      this.timer = new Timer(
+        $.extend(digitalOptions, {canvas: options.timer_canvas})
+      );
 
-      this.score = new Score({
-        img: options.files.digits,
-        srcWidth: 52, srcHeight: 92,
-        dstWidth: 18, dstHeight: 36,
-        canvas: options.score_canvas,
-        game: options.game,
-        digitCt: 5
-      });
+      this.score = new Score(
+        $.extend(digitalOptions, {canvas: options.score_canvas})
+      );
 
+      var zt = View.zoom.tiles[options.level] || 1;
       this.tiles = new Tiles({
         img: options.files.tiles,
         srcWidth: 16, srcHeight: 16,
-        dstWidth: 16, dstHeight: 16,
+        dstWidth: zt*16, dstHeight: zt*16,
         game: options.game,
         canvas: options.canvas,
         ctx: options.ctx
       });
+
     },
 
     resizeHTML: function() {
-      this.main.style.width = this.tiles.width;
+      this.main.style.width = Math.max(200, this.tiles.width);
     },
 
     deleteSubViews: function() {
@@ -85,8 +93,22 @@ var window = window || this;
 
       var view = this;
       var mouseDown = {left: false, right: false};
-      //var on = view.canvas.addEventListener.bind(view.canvas);
 
+      var choices = view.menu.getElementsByClassName('level-choice');
+
+      var addListenerTo = function(choice) {
+        var levelName = choice.getAttribute('name');
+        choice.addEventListener('click', function(e) {
+          for (var j=0; j<choices.length; j++) {
+            choices[j].classList.remove('active');
+          }
+          e.currentTarget.classList.add('active');
+          view.reset({level: levelName});
+        });
+      };
+      for (var i=0; i<choices.length; i++) {
+        addListenerTo(choices[i]);
+      }
 
       // Converts button codes to 'left', 'right', 'middle'.
       var desc = {'0': 'left', '1': 'middle', '2': 'right'};
@@ -193,11 +215,11 @@ var window = window || this;
       delete this._drawTimer;
     },
 
-    reset: function() {
+    reset: function(newOptions) {
       this.stop();
       this.deleteSubViews();
       delete this.game;
-      View.call(this, this.options);
+      View.call(this, $.extend(this.options, newOptions));
       this.draw();
     },
 
