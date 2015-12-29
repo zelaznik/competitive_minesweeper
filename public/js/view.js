@@ -33,9 +33,9 @@ var window = window || this;
 
   View.prototype = ({
     storeSettings: function(options) {
-      // this.aux = options.aux;
       this.main = options.main;
       this.menu = options.menu;
+      this.resetButton = options.resetButton;
       this.timer_canvas = options.timer_canvas;
       this.score_canvas = options.score_canvas;
 
@@ -129,9 +129,12 @@ var window = window || this;
       var on = view.canvas.addEventListener.bind(view.canvas);
 
       resetButton.addEventListener('click', function(e) {
-        view.reset();
+        resetButton.classList.remove('sunglasses');
+        resetButton.classList.remove('open-mouth');
+        resetButton.classList.remove('frown');
         mouseDown.left = false;
         mouseDown.right = false;
+        view.reset();
       });
 
       on('mousemove', function(e) {
@@ -222,6 +225,9 @@ var window = window || this;
       this.stop();
       this.deleteSubViews();
       delete this.game;
+      this.resetButton.classList.remove('sunglasses');
+      this.resetButton.classList.remove('open-mouth');
+      this.resetButton.classList.remove('frown');
       View.call(this, $.extend(this.options, newOptions));
       this.draw();
     },
@@ -254,6 +260,11 @@ var window = window || this;
       if (!!result.mine || result.won) {
         this.draw();
         this.stop();
+        if (result.won) {
+          this.resetButton.classList.add('sunglasses');
+        } else if (result.mine) {
+          this.resetButton.classList.add('frown');
+        }
       }
     },
 
