@@ -69,9 +69,8 @@ var window = window || this;
     },
 
     reveal: function(pos, callback) {
-      switch (this.get(pos)) {
-        case undefined || '?':
-          return {};
+      if (this.get(pos) !== undefined) {
+        return {};
       }
 
       callback = callback || function() {};
@@ -94,7 +93,7 @@ var window = window || this;
 
       // We can win even if we haven't flagged all the remaining mines
       // as long as every non-mine has already been turned over.
-      if ((this.count('flag') + this.count(undefined)) + this.count('?') === this.mineCt) {
+      if ((this.count('flag') + this.count(undefined)) === this.mineCt) {
         this.forEach(function(val, coord) {
           this.ensureFlag(coord, callback);
         }.bind(this));
@@ -161,25 +160,13 @@ var window = window || this;
     },
 
     toggleFlag: function(pos, callback) {
-      switch (this.get(pos)) {
-        case undefined:
-          this.set(pos, 'flag');
-          this.flagCt++;
-          break;
-
-        case 'flag':
-          this.set(pos, '?');
-          this.flagCt--;
-          break;
-
-        case '?':
-          this.del(pos);
-          break;
-
-        default:
-          throw "Invalid square: " + this.get(pos);
+      if (this.get(pos) === undefined) {
+        this.set(pos, 'flag');
+        this.flagCt++;
+      } else if (this.get(pos) === 'flag') {
+        this.del(pos);
+        this.flagCt--;
       }
-
       callback(pos);
       return {};
     },
