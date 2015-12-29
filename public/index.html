@@ -1,14 +1,12 @@
 <html>
   <head>
-    <meta property="og:title" content="Why Doesn't America Read Anymore?" />
-    <meta property="og:url" content="http://www.npr.org/2014/04/01/297690717/why-doesnt-america-read-anymore" />
-    <meta property="og:type" content="article" />
-    <meta property="og:description" content="In an age of readily available information and countless ways to get it, we seem to be losing touch with our powers of comprehension." />
-    <meta property="og:image" content="http://media.npr.org/assets/img/2014/04/01/istock_000022638300small_wide-6e2c5913e66f3a8c63e509d696d8f2ccf037f89f.jpg?s=1400" />
-    <meta property="og:site_name" content="NPR.org" />
-
+    <meta property="og:title" content="Minesweeper Clons" />
     <meta property="og:url" content="http://competitive-minesweeper.herokuapp.com" />
-    <meta property="fb:app_id" content="138837436154588" />
+    <meta property="og:type" content="game" />
+    <meta property="og:description" content="Play minesweeper online.." />
+    <meta property="og:image" content="http://competitive-minesweeper.herokuapp.com/images/preview.jpg" />
+    <meta property="og:site_name" content="competitive-minesweeper.herokuapp.com" />
+    <meta property="fb:app_id" content="1034010236642431" />
 
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="image_src" href="images/preview.jpg">
@@ -26,6 +24,25 @@
   </head>
 
   <body>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1034010236642431',
+          xfbml      : true,
+          version    : 'v2.5'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
     <div id="main">
       <div class="aux">
         <div class='aux-item score-canvas'>
