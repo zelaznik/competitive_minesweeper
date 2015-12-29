@@ -6,6 +6,22 @@ body {
   background-image: linear-gradient(top, #001267, #0BA8DB); /* Standard syntax */
 }
 
+body.success {
+  background-color: #003D00; /* For browsers that do not support gradients */
+  background-image: -webkit-linear-gradient(top, #003D00, #24BC25); /* For Safari 5.1 to 6.0 */
+  background-image: -o-linear-gradient(top, #003D00, #24BC25); /* For Opera 11.1 to 12.0 */
+  background-image: -moz-linear-gradient(top, #003D00, #24BC25); /* For Firefox 3.6 to 15 */
+  background-image: linear-gradient(top, #003D00, #24BC25); /* Standard syntax */
+}
+
+body.failure {
+  background-color: #761817; /* For browsers that do not support gradients */
+  background-image: -webkit-linear-gradient(top, #761817, #E30200); /* For Safari 5.1 to 6.0 */
+  background-image: -o-linear-gradient(top, #761817, #E30200); /* For Opera 11.1 to 12.0 */
+  background-image: -moz-linear-gradient(top, #761817, #E30200); /* For Firefox 3.6 to 15 */
+  background-image: linear-gradient(top, #761817, #E30200); /* Standard syntax */
+}
+
 .border-concave {
   border-style: solid;
   border: 1px 1px 1px 1px;

@@ -34,6 +34,7 @@ var window = window || this;
       this.aux = options.aux;
       this.main = options.main;
       this.menu = options.menu;
+      this.body = options.body;
       this.resetButton = options.resetButton;
       this.timer_canvas = options.timer_canvas;
       this.score_canvas = options.score_canvas;
@@ -226,6 +227,8 @@ var window = window || this;
       this.stop();
       this.deleteSubViews();
       delete this.game;
+      this.body.classList.remove('success');
+      this.body.classList.remove('failure');
       this.resetButton.classList.remove('sunglasses');
       this.resetButton.classList.remove('open-mouth');
       this.resetButton.classList.remove('frown');
@@ -262,8 +265,10 @@ var window = window || this;
         this.draw();
         this.stop();
         if (result.won) {
+          this.body.classList.add('success');
           this.resetButton.classList.add('sunglasses');
         } else if (result.mine) {
+          this.body.classList.add('failure');
           this.resetButton.classList.add('frown');
         }
       }
