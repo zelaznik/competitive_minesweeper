@@ -1,24 +1,16 @@
-# Minesweeper in Javascript
+# Minesweeper-JS
 
-## To Do:
-  - Get the decimals to display in the numbers.
-  - Get the decimals to display negative numbers.
-  - Make sure the final sweep still updates the mine counter.
-  - Add question marks.
+[Live Link][heroku]
+[heroku]: http://competitive-minesweeper.herokuapp.com
 
-## Done:
-  - Push to Heroku.
-  - Get the faces to update on clicks, wins, and losses.
-  - Get the user to be able to adjust various settings.
-  - Get mac-style right-click to work again.
-  - Get the false flags to be raised.
-  - Get the timer to start again with a new game.
-  - Get the board to reset properly.
-  - Do not allow a right click to start the game.
-  - Get the board to flag all remaining mines.
-  - Do not allow squares to be declared outside the appropriate range.
-  - Do not allow dual clicking unless the correct number of flags have been selected.
-  - Get the buttons to press down on mousedown.
-  - First square cannot be a mine.
-  - Do not allow dual clicking after game over.
-  - Have an undone right-click not highlight the original cell.
+[preview]: https://github.com/zelaznik/minesweeper_js/blob/master/_readme/preview.png
+![screenshot of expert game in progress][preview]
+
+## Overview
+Pixel perfect clone of the classic Windows logic game, implemented in JavaScript. All the standard features are available such as dual-clicking in order to clear the adjacent cells of mines. Touch responsive: when holding the mouse down, a user can see the adjacent mines press inward before clicking. The yellow face reacts to events just like the classic Windows version.
+
+Separation of concerns. The board is instantiated in a separate class and only accessible through a closure. Only one square is revealed at a time. The game communicates to the view through callback functions, which makes this game scalable. Includes facebook and open graph metatags to make sharing on social media easier.
+
+## Technologies Used
+[technologies]: https://github.com/zelaznik/minesweeper_js/blob/master/_readme/technologies.jpg
+![Canvas CSS3 Javascript jQuery][technologies]
