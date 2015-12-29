@@ -24,8 +24,8 @@ body {
 
 #main {
   width: 480px; /* Javascript will override this value */
-  padding: 10px;
-  margin-top: 30px;
+  padding: 10px 10px 10px 10px;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -40,7 +40,8 @@ body {
 
 .aux {
   min-width: 200px;
-  padding: 20px 0px 0px 0px;
+  padding: 25px 0px 0px 0px;
+  margin-bottom: 10px;
 }
 
 .aux-item {
@@ -75,16 +76,10 @@ body {
 
 .score-canvas {
   float: left;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .timer-canvas {
   float: right;
-  margin-right: 20px;
-}
-
-.footer {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-right: 10px;
 }

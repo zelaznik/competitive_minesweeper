@@ -20,10 +20,10 @@ var window = window || this;
 
   View.zoom = {
     tiles: {
-      'beginner': 1.25
+      'beginner': 1.375
     },
     digital: {
-
+      'beginner': 0.90
     }
   };
   // View.zoom = {
@@ -76,7 +76,7 @@ var window = window || this;
     },
 
     resizeHTML: function() {
-      this.main.style.width = Math.max(200, this.tiles.width);
+      this.main.style.width = Math.max(140, this.tiles.width);
     },
 
     deleteSubViews: function() {
