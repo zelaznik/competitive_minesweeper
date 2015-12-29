@@ -12,5 +12,5 @@ Pixel perfect clone of the classic Windows logic game, implemented in JavaScript
 Separation of concerns. The board is instantiated in a separate class and only accessible through a closure. Only one square is revealed at a time. The game communicates to the view through callback functions, which makes this game scalable. Includes facebook and open graph metatags to make sharing on social media easier.
 
 ## Technologies Used
-[technologies]: https://github.com/zelaznik/minesweeper_js/blob/master/_readme/technologies.jpg
+[technologies]: https://github.com/zelaznik/minesweeper_js/blob/master/_readme/technologies.png
 ![Canvas CSS3 Javascript jQuery][technologies]
