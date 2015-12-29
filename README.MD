@@ -1,7 +1,6 @@
 # Minesweeper in Javascript
 
 ## To Do:
-  - Get mac-style right-click to work again.
   - Get the user to be able to adjust various settings.
   - Get the decimals to display in the numbers.
   - Get the decimals to display negative numbers.
@@ -9,6 +8,7 @@
 
 ## Done:
   - Push to Heroku.
+  - Get mac-style right-click to work again.
   - Get the false flags to be raised.
   - Get the timer to start again with a new game.
   - Get the board to reset properly.
