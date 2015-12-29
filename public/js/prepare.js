@@ -1,5 +1,3 @@
-var window = window || this;
-
 (function() {
   'use strict';
 
@@ -25,21 +23,17 @@ var window = window || this;
       view.draw();
     };
 
-    imgDigits = window.imgDigits = new Image();
-    imgDigits.src = 'images/digits.png';
-    remainingCt++;
-    imgDigits.addEventListener('load', afterAllImagesLoaded);
+    var stage = function(path) {
+      var img = new Image();
+      img.src = path;
+      img.addEventListener('load', afterAllImagesLoaded);
+      remainingCt++;
+      return img;
+    };
 
-    imgTiles = window.imgTiles = new Image();
-    imgTiles.src = 'images/tiles.png';
-    remainingCt++;
-    imgTiles.addEventListener('load', afterAllImagesLoaded);
-
-    imgFaces = window.imgFaces = new Image();
-    imgFaces.src = 'images/faces.png';
-    remainingCt++;
-    imgFaces.addEventListener('load', afterAllImagesLoaded);
-
+    imgDigits = window.imgDigits = stage('images/digits.png');
+    imgTiles = window.imgTiles = stage('images/tiles.png');
+    imgFages = window.imgFages = stage('images/faces.png');
   };
 
 })();
