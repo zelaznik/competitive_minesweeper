@@ -6,6 +6,22 @@ body {
   background-image: linear-gradient(top, #001267, #0BA8DB); /* Standard syntax */
 }
 
+.border-concave {
+  border-style: solid;
+  border: 1px 1px 1px 1px;
+  border-color: #808080 #f0f0f0 #f0f0f0 #808080;
+  transform: translate(-2px, 0px);
+  -webkit-transform: translate(-2px, 0px);
+}
+
+.border-convex {
+  border-style: solid;
+  border: 1px 1px 1px 1px;
+  border-color: #f0f0f0 #808080 #808080 #f0f0f0;
+  transform: translate(-2px, 0px);
+  -webkit-transform: translate(-2px, 0px);
+}
+
 #main {
   width: 480px; /* Javascript will override this value */
   padding: 10px;
@@ -13,7 +29,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  background-color: #cccccc;
+  background-color: #c4c4c4;
 }
 
 .game {
