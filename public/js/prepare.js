@@ -13,6 +13,7 @@
         document: options.document,
         canvas: options.canvas,
         menu: options.menu,
+        aux: options.aux,
         timer_canvas: options.timer_canvas,
         score_canvas: options.score_canvas,
         resetButton: options.resetButton,

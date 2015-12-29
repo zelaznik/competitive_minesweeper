@@ -33,6 +33,7 @@ var window = window || this;
 
   View.prototype = ({
     storeSettings: function(options) {
+      this.aux = options.aux;
       this.main = options.main;
       this.menu = options.menu;
       this.resetButton = options.resetButton;
@@ -76,7 +77,10 @@ var window = window || this;
     },
 
     resizeHTML: function() {
-      this.main.style.width = Math.max(140, this.tiles.width);
+      var w = Math.max(140, this.tiles.width);
+      this.canvas.style.width = w;
+      this.main.style.width = w;
+      this.aux.style.width = w;
     },
 
     deleteSubViews: function() {
