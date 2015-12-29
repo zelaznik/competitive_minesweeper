@@ -1,15 +1,12 @@
-body {
-  height: 350px;
-}
-
 #main {
-  background-color: #ddd;
-  width: 500;
+  height: 350px;
+  width: 0px; /* Javascript will override this value */
   padding: 0;
   margin: 0;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  background-color: #ddd;
 }
 
 .aux {

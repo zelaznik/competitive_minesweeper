@@ -27,7 +27,7 @@ var window = window || this;
 
   Game.ROW_CT = 16;
   Game.COL_CT = 30;
-  Game.MINE_CT = 40;
+  Game.MINE_CT = 99;
 
   Game.inherits(Grid, {
     /*****************************

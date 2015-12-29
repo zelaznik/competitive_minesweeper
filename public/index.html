@@ -1,6 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="image_src" href="images/preview.jpg">
 
     <script type="text/javascript" src="js/utils.js"></script>
     <script type="text/javascript" src="js/grid.js"></script>
@@ -16,7 +17,6 @@
 
   <body>
     <div id="main">
-
       <div class="aux">
         <div class='aux-item score-canvas'>
           <canvas id="score-canvas"></canvas>
@@ -40,12 +40,14 @@
       <div class="footer">
         <p>Code by Steve Zelaznik, 2016.</p>
       </div>
-    </div>
+
+    </div> <!-- End main -->
 
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         prepare({
           document: document,
+          main: document.getElementById('main'),
           canvas: document.getElementById('game-canvas'),
           timer_canvas: document.getElementById('timer-canvas'),
           score_canvas: document.getElementById('score-canvas'),

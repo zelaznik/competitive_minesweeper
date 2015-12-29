@@ -6,8 +6,10 @@ var window = window || this;
   var View = window.View = function View(options) {
     this.options = options = options || {};
     this.game = options.game = new Game(options.gameSettings);
+
     this.storeSettings(options);
     this.addSubViews(options);
+    this.resizeHTML(options);
     this.addListeners(options);
 
     this.ctx = this.canvas.getContext('2d');
@@ -18,6 +20,7 @@ var window = window || this;
 
   View.prototype = ({
     storeSettings: function(options) {
+      this.main = options.main;
       this.timer_canvas = options.timer_canvas;
       this.score_canvas = options.score_canvas;
 
@@ -62,6 +65,10 @@ var window = window || this;
         canvas: options.canvas,
         ctx: options.ctx
       });
+    },
+
+    resizeHTML: function() {
+      this.main.style.width = this.tiles.width + 100;
     },
 
     deleteSubViews: function() {

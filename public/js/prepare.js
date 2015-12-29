@@ -22,6 +22,7 @@ var window = window || this;
             timer_canvas: options.timer_canvas,
             score_canvas: options.score_canvas,
             resetButton: options.resetButton,
+            main: options.main,
             files: {
               'digits': imgDigits, 'faces': imgFaces, 'tiles': imgTiles
             }
