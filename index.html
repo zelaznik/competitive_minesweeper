@@ -1,6 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="assets/main.css">
+
     <script type="text/javascript" src="lib/utils.js"></script>
     <script type="text/javascript" src="lib/grid.js"></script>
     <script type="text/javascript" src="lib/mineField.js"></script>
@@ -19,8 +20,19 @@
         <button id="game-reset">Reset</button>
       </div>
 
+      <div class="aux">
+        <div class='score-canvas'>
+          <canvas id="score-canvas"></canvas>
+        </div>
+        <div class='timer-canvas'>
+          <canvas id="timer-canvas"></canvas>
+        </div>
+      </div>
+
       <div class="game">
-        <canvas id="canvas" />
+        <div class="board">
+          <canvas id="game-canvas"></canvas>
+        </div>
       </div>
 
       <div class="footer">
@@ -32,7 +44,9 @@
       document.addEventListener("DOMContentLoaded", function() {
         prepare({
           document: document,
-          canvas: document.getElementById('canvas'),
+          canvas: document.getElementById('game-canvas'),
+          timer_canvas: document.getElementById('timer-canvas'),
+          score_canvas: document.getElementById('score-canvas'),
           resetButton: document.getElementById('game-reset')
         });
       });
