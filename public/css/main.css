@@ -10,16 +10,16 @@ body {
   border-style: solid;
   border: 1px 1px 1px 1px;
   border-color: #808080 #f0f0f0 #f0f0f0 #808080;
-  transform: translate(-2px, 0px);
-  -webkit-transform: translate(-2px, 0px);
+  transform: translate(-3px, 0px);
+  -webkit-transform: translate(-3px, 0px);
 }
 
 .border-convex {
   border-style: solid;
   border: 1px 1px 1px 1px;
   border-color: #f0f0f0 #808080 #808080 #f0f0f0;
-  transform: translate(-2px, 0px);
-  -webkit-transform: translate(-2px, 0px);
+  transform: translate(-3px, 0px);
+  -webkit-transform: translate(-3px, 0px);
 }
 
 #main {
@@ -40,38 +40,38 @@ body {
 
 .aux {
   min-width: 200px;
-  padding: 25px 0px 0px 0px;
+  padding: 8px 0px;
   margin-bottom: 10px;
 }
 
 .aux-item {
   display: inline-block;
-  position: relative;
+  /*position: relative;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%);*/
 }
 
 #faces-button {
   background-image: url('../images/faces.png');
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
   background-position: 0px 0px;
 }
 
 #faces-button.open-mouth {
-  background-position: 0px 30px;
+  background-position: 0px 36px;
 }
 
 #faces-button.frown {
-  background-position: 0px 60px;
+  background-position: 0px 72px;
 }
 
 #faces-button.sunglasses {
-  background-position: -30px 0px;
+  background-position: -36px 0px;
 }
 
 #faces-button:active {
-  background-position: -30px 60px;
+  background-position: -36px 72px;
 }
 
 .score-canvas {
