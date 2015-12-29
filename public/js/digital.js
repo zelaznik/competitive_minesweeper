@@ -37,6 +37,14 @@ var window = window || this;
       return this.digitCt;
     },
 
+    srcXminus: function() {
+      return 5 * this.srcWidth;
+    },
+
+    srcYminus: function() {
+      return 1 * this.srcHeight;
+    },
+
     srcX: function(ones) {
       return (ones % 5) * this.srcWidth;
     },
@@ -51,9 +59,21 @@ var window = window || this;
     },
 
     draw: function(ctx) {
-      var pStart = this.digitCt - 1;
-      for (var p = pStart; p>=0; p--) {
-        var d = singleDigit(this, p);
+      var negative, p, pStart, d;
+      negative = (this<0);
+
+      if (negative) {
+        ctx.drawImage(this.img,
+          this.srcXminus(), this.srcYminus(), this.srcWidth, this.srcHeight,
+          0, 0, this.dstWidth, this.dstHeight
+        );
+        pStart = this.digitCt - 2;
+      } else {
+        pStart = this.digitCt - 1;
+      }
+
+      for (p = pStart; p>=0; p--) {
+        d = singleDigit(this, p);
         ctx.drawImage(this.img,
           this.srcX(d), this.srcY(d), this.srcWidth, this.srcHeight,
           this.dstX(p), this.dstY(p), this.dstWidth, this.dstHeight
