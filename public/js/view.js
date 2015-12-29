@@ -75,10 +75,9 @@ var window = window || this;
     },
 
     resizeHTML: function() {
-      var w = Math.max(140, this.tiles.width);
-      this.canvas.style.width = w;
-      this.main.style.width = w;
-      this.aux.style.width = w;
+      this.canvas.style.width = this.tiles.width;
+      this.main.style.width = this.tiles.width;
+      this.aux.style.width = this.tiles.width;
     },
 
     deleteSubViews: function() {
