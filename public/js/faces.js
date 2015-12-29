@@ -15,91 +15,19 @@ var window = window || this;
     this.dstWidth = options.width || options.dstWidth;
     this.dstHeight = options.height || options.dstHeight;
 
+    this.width = this.dstWidth;
+    this.height = this.dstHeight;
   };
 
   Faces.lookups = {
-    'undefined': {r:0, c:0},
-    'flag': {r:0, c:1},
-    'bomb': {r:0, c:2},
-    '0': {r: 0, c:3},
-    '1': {r: 1, c:0},
-    '2': {r: 1, c:1},
-    '3': {r: 1, c:2},
-    '4': {r: 1, c:3},
-    '5': {r: 2, c:0},
-    '6': {r: 2, c:1},
-    '7': {r: 2, c:2},
-    '8': {r: 2, c:3},
-    'exploded': {r:3, c:0},
-    'falseflag': {r:3, c:1},
-    'active': {r:0, c:3},
+    'smile': {r:0, c:0},
+    'open': {r:0, c:1},
+    'glasses': {r:1, c:0},
+    'frown': {r: 1, c:1},
+    'active': {r:2, c:0}
   };
 
   Faces.prototype = {
-    calculateCell: function(e) {
-      var d = {
-        r: Math.floor(e.offsetY / this.dstHeight),
-        c: Math.floor(e.offsetX / this.dstWidth)
-      };
-      return d;
-    },
-
-    get width() {
-      return this.dstWidth * this.colCt;
-    },
-    get height() {
-      return this.dstHeight * this.rowCt;
-    },
-    srcX: function(ones) {
-      return (ones % 5) * this.srcWidth;
-    },
-    srcY: function(ones) {
-      return Math.floor(ones / 5) * this.srcHeight;
-    },
-    dstX: function(place) {
-      return (this.digitCt - place - 1) * (this.dstWidth);
-    },
-
-    dstY: function(place) {
-      return 0;
-    },
-
-    setFalseFlags: function(options) {
-      var no_mine_at = options.not_a_mine;
-      var callback = options.callback;
-      for (var r=0, rMax=this.rowCt; r<rMax; r++) {
-        for (var c=0, cMax=this.colCt; c<cMax; c++) {
-          var pos = {r: r, c: c};
-          if (this.get(pos) === 'flag' && no_mine_at(pos)) {
-            this.set(pos, 'falseflag');
-            callback(pos);
-          }
-        }
-      }
-    },
-
-    drawSingle: function(pos, ctx, options) {
-      var lkp, src, dst, val;
-      val = this.game.get(pos);
-      if (options && options.active) {
-        val = val || 'active';
-      }
-      lkp = Faces.lookups[val];
-      src = {
-        r: lkp.r * this.srcHeight,
-        c: lkp.c * this.srcWidth
-      };
-      dst = {
-        r: pos.r * this.dstHeight,
-        c: pos.c * this.dstWidth
-      };
-
-      ctx.drawImage(this.img,
-        src.c, src.r, this.srcWidth, this.srcHeight,
-        dst.c, dst.r, this.dstWidth, this.dstHeight
-      );
-    }, // end drawSingle function
-
     draw: function(ctx) {
       var srcHeight = this.srcHeight;
       var srcWidth = this.srcWidth;
