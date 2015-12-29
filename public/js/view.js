@@ -85,13 +85,24 @@ var window = window || this;
 
       var view = this;
       var mouseDown = {left: false, right: false};
-      var on = view.canvas.addEventListener.bind(view.canvas);
+      //var on = view.canvas.addEventListener.bind(view.canvas);
+
 
       // Converts button codes to 'left', 'right', 'middle'.
       var desc = {'0': 'left', '1': 'middle', '2': 'right'};
       function label(e) {
         return desc[e.button];
       }
+
+      var clickId = 0;
+      var dbg = function(action, callback) {
+        // Only use this function for debugging purposes.
+        view.canvas.addEventListener(action, function(e) {
+          console.log((++clickId) + ") " + action + ": " + label(e) + ", status: " + JSON.stringify(mouseDown));
+          callback(e);
+        });
+      };
+      var on = view.canvas.addEventListener.bind(view.canvas);
 
       options.resetButton.addEventListener('click', function(e) {
         view.reset();
@@ -107,9 +118,9 @@ var window = window || this;
 
       on('contextmenu', function(e) {
         e.preventDefault();
-        if (!mouseDown.left) {
+        var btn = label(e);
+        if (btn === 'left' || !mouseDown.left) {
           view.toggleFlag(e);
-          view.draw();
         }
       });
 
