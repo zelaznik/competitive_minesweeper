@@ -1,6 +1,9 @@
 # Minesweeper in Javascript
 
 ## To Do:
+  - Add question marks.
+  - Get the faces to update on clicks, wins, and losses.
+
   - Get the user to be able to adjust various settings.
   - Get the decimals to display in the numbers.
   - Get the decimals to display negative numbers.
