@@ -20,15 +20,13 @@ var window = window || this;
 
   View.zoom = {
     tiles: {
-      'beginner': 1.375
+      'beginner': 23/16
     },
     digital: {
-      'beginner': 0.90
+
     }
   };
-  // View.zoom = {
-  //   'beginner': {'tiles': 1.00, 'digital': }
-  // };
+
   View.dt = 0.05;
 
   View.prototype = ({
