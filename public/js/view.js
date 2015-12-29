@@ -99,12 +99,6 @@ var window = window || this;
         mouseDown.right = false;
       });
 
-
-      function show(title, e) {
-        var pos = view.tiles.calculateCell(e);
-        console.log(title + ": " + JSON.stringify(pos));
-      }
-
       on('mousemove', function(e) {
         if (mouseDown.left) {
           view.highlightActive(e, {includeNeighbors: mouseDown.right});
