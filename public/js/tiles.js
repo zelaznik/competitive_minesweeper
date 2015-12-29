@@ -35,6 +35,7 @@ var window = window || this;
     'exploded': {r:3, c:0},
     'falseflag': {r:3, c:1},
     'active': {r:0, c:3},
+    '?': {r: 3, c:3},
   };
 
   Tiles.prototype = {

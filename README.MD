@@ -1,7 +1,6 @@
 # Minesweeper in Javascript
 
 ## To Do:
-  - Add question marks.
   - Get the faces to update on clicks, wins, and losses.
 
   - Get the user to be able to adjust various settings.
@@ -11,6 +10,7 @@
 
 ## Done:
   - Push to Heroku.
+  - Add question marks.
   - Get mac-style right-click to work again.
   - Get the false flags to be raised.
   - Get the timer to start again with a new game.
