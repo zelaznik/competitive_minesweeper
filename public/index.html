@@ -69,7 +69,8 @@
           <canvas id="score-canvas"></canvas>
         </div>
 
-        <div id="faces-button" class="aux-item faces">
+        <div class="aux-item faces">
+          <canvas id="faces-button"></canvas>
         </div>
 
         <div class='aux-item timer-canvas'>
@@ -89,7 +90,6 @@
       document.addEventListener("DOMContentLoaded", function() {
         prepare({
           document: document,
-          // aux: document.getElementById('aux'),
           main: document.getElementById('main'),
           menu: document.getElementById("cssmenu"),
           canvas: document.getElementById('game-canvas'),

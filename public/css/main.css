@@ -34,13 +34,20 @@ body {
   transform: translateY(-50%);
 }
 
-.faces {
+#faces-button {
   background-image: url('../images/faces.png');
   width: 30px;
   height: 30px;
 }
 
-.faces:active {
+#faces-button.open-mouth {
+  background: red;
+  /*background-image: url('../images/faces.png');*/
+  width: 30px;
+  height: 30px;
+}
+
+#faces-button:active {
   background-position: 0px 60px;
 }
 

@@ -124,9 +124,11 @@ var window = window || this;
           callback(e);
         });
       };
+
+      var resetButton = options.resetButton;
       var on = view.canvas.addEventListener.bind(view.canvas);
 
-      options.resetButton.addEventListener('click', function(e) {
+      resetButton.addEventListener('click', function(e) {
         view.reset();
         mouseDown.left = false;
         mouseDown.right = false;
@@ -153,11 +155,11 @@ var window = window || this;
       on('mousedown', function(e) {
         var btn = label(e);
         mouseDown[btn] = true;
-
-        if (mouseDown.left && mouseDown.right) {
-          view.highlightActive(e, {includeNeighbors: true});
-        } else if (mouseDown.left) {
-          view.highlightActive(e);
+        if (mouseDown.left) {
+          view.highlightActive(e, {
+            includeNeighbors: !!mouseDown.right
+          });
+          resetButton.classList.add('open-mouth');
         }
       });
 
@@ -166,6 +168,7 @@ var window = window || this;
         if (mouseDown.left && mouseDown.right) {
           view.sweep(e);
         }
+        resetButton.classList.remove('open-mouth');
         mouseDown[btn] = false;
         view.draw();
       });

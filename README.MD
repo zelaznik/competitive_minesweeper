@@ -3,7 +3,6 @@
 ## To Do:
   - Get the faces to update on clicks, wins, and losses.
 
-  - Get the user to be able to adjust various settings.
   - Get the decimals to display in the numbers.
   - Get the decimals to display negative numbers.
   - Make sure the final sweep still updates the mine counter.
@@ -11,6 +10,7 @@
 
 ## Done:
   - Push to Heroku.
+  - Get the user to be able to adjust various settings.
   - Get mac-style right-click to work again.
   - Get the false flags to be raised.
   - Get the timer to start again with a new game.
