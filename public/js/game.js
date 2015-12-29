@@ -75,7 +75,8 @@ var window = window || this;
     },
 
     reveal: function(pos, callback) {
-      if (this.get(pos) !== undefined) {
+      var val = this.get(pos);
+      if (val !== undefined && val !== '?') {
         return {};
       }
 
@@ -99,7 +100,7 @@ var window = window || this;
 
       // We can win even if we haven't flagged all the remaining mines
       // as long as every non-mine has already been turned over.
-      if ((this.count('flag') + this.count(undefined)) === this.mineCt) {
+      if ((this.count('flag') + this.count('?') + this.count(undefined)) === this.mineCt) {
         this.forEach(function(val, coord) {
           this.ensureFlag(coord, callback);
         }.bind(this));
@@ -135,7 +136,8 @@ var window = window || this;
       var mf = result.minefield;
       // Display All The Bombs
       mf.forEach(function(val, pos) {
-        if (val && (self.get(pos) === undefined)) {
+        var prev = self.get(pos);
+        if (val && (prev === undefined || prev === '?')) {
           self.set(pos, 'bomb');
         }
       });
@@ -157,7 +159,8 @@ var window = window || this;
     },
 
     ensureFlag: function(pos, callback) {
-      if (this.get(pos) === undefined) {
+      var val = this.get(pos);
+      if (val === undefined || val === '?') {
         this.set(pos, 'flag');
         this.flagCt++;
       }
@@ -166,13 +169,22 @@ var window = window || this;
     },
 
     toggleFlag: function(pos, callback) {
-      if (this.get(pos) === undefined) {
-        this.set(pos, 'flag');
-        this.flagCt++;
-      } else if (this.get(pos) === 'flag') {
-        this.del(pos);
-        this.flagCt--;
+      switch(this.get(pos)) {
+        case undefined:
+          this.set(pos, 'flag');
+          this.flagCt++;
+          break;
+
+        case 'flag':
+          this.set(pos, '?');
+          this.flagCt--;
+          break;
+
+        case '?':
+          this.del(pos);
+          break;
       }
+
       callback(pos);
       return {};
     },
