@@ -7,10 +7,10 @@
   - Get the decimals to display in the numbers.
   - Get the decimals to display negative numbers.
   - Make sure the final sweep still updates the mine counter.
+  - Add question marks.
 
 ## Done:
   - Push to Heroku.
-  - Add question marks.
   - Get mac-style right-click to work again.
   - Get the false flags to be raised.
   - Get the timer to start again with a new game.
