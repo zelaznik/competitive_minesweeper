@@ -1,11 +1,11 @@
 # Minesweeper in Javascript
 
 ## To Do:
+  - Get mac-style right-click to work again.
   - Get the user to be able to adjust various settings.
   - Get the decimals to display in the numbers.
   - Get the decimals to display negative numbers.
   - Make sure the final sweep still updates the mine counter.
-  - Have an undone right-click not highlight the original cell.
 
 ## Done:
   - Push to Heroku.
@@ -19,3 +19,4 @@
   - Get the buttons to press down on mousedown.
   - First square cannot be a mine.
   - Do not allow dual clicking after game over.
+  - Have an undone right-click not highlight the original cell.

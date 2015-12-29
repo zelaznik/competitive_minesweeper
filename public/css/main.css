@@ -1,8 +1,11 @@
-@import url('../images/faces.png');
+body {
+  background-image: url("../images/background.jpg");
+}
 
 #main {
   width: 480px; /* Javascript will override this value */
   padding: 10px;
+  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
