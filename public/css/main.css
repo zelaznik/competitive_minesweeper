@@ -1,22 +1,39 @@
+@import url('../images/faces.png');
+
 #main {
-  height: 350px;
-  width: 0px; /* Javascript will override this value */
-  padding: 0px 20px;
-  margin: 0;
+  width: 480px; /* Javascript will override this value */
+  padding: 10px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   background-color: #ddd;
 }
 
+.game {
+  display: block;
+  clear: both;
+  text-align: center;
+}
+
 .aux {
-  height: 25px;
-  padding-top: 10px;
-  padding-bottom: 20px;
+  padding: 20px 0px 0px 0px;
 }
 
 .aux-item {
   display: inline-block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.faces {
+  background-image: url('../images/faces.png');
+  width: 30px;
+  height: 30px;
+}
+
+.faces:active {
+  background-position: 0px 60px;
 }
 
 .score-canvas {
@@ -33,10 +50,4 @@
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-}
-
-.game {
-  display: block;
-  clear: both;
-  text-align: center;
 }

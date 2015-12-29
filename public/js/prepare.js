@@ -13,7 +13,7 @@ var window = window || this;
       imgTiles.addEventListener('load', function() {
 
         var imgFaces = window.imgFaces = new Image();
-        imgFaces.src = 'images/faces_glyph.jpg';
+        imgFaces.src = 'images/faces.png';
         imgFaces.addEventListener('load', function() {
 
           var view = window.view = new View({

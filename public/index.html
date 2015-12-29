@@ -22,11 +22,11 @@
           <canvas id="score-canvas"></canvas>
         </div>
 
-        <div class="aux-item reset-button">
-          <button id="game-reset">Reset</button>
+        <div id="reset-button" class="aux-item faces">
+          <!-- <button id="reset-button">Reset</button> -->
         </div>
 
-        <div class='aux-iem timer-canvas'>
+        <div class='aux-item timer-canvas'>
           <canvas id="timer-canvas"></canvas>
         </div>
       </div>
@@ -47,7 +47,7 @@
           canvas: document.getElementById('game-canvas'),
           timer_canvas: document.getElementById('timer-canvas'),
           score_canvas: document.getElementById('score-canvas'),
-          resetButton: document.getElementById('game-reset')
+          resetButton: document.getElementById('reset-button')
         });
       });
     </script>
