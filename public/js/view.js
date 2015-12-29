@@ -45,22 +45,23 @@ var window = window || this;
 
     addSubViews: function(options) {
       var zd = View.zoom.digital[options.level] || 1;
-      var digitalOptions = $.extend({
+      var digitalOptions = {
         img: options.files.digits,
         srcWidth: 52, srcHeight: 92,
         dstWidth: zd*18, dstHeight: zd*36,
         game: options.game,
         ctx: options.ctx,
         digitCt: 5
-      }, {});
+      };
 
-      this.timer = new Timer(
-        $.extend(digitalOptions, {canvas: options.timer_canvas})
-      );
+      this.timer = new Timer($.extend({
+          canvas: options.timer_canvas,
+          decimalCt: 1
+      }, digitalOptions));
 
-      this.score = new Score(
-        $.extend(digitalOptions, {canvas: options.score_canvas})
-      );
+      this.score = new Score($.extend({
+        canvas: options.score_canvas
+      }, digitalOptions));
 
       var zt = View.zoom.tiles[options.level] || 1;
       this.tiles = new Tiles({
@@ -71,7 +72,6 @@ var window = window || this;
         canvas: options.canvas,
         ctx: options.ctx
       });
-
     },
 
     resizeHTML: function() {

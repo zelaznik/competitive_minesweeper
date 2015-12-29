@@ -17,12 +17,16 @@ var window = window || this;
     this.dstWidth = options.dstWidth || options.width;
     this.dstHeight = options.dstHeight || options.width;
     this.digitCt = (options.maxDigits || 3);
-    this.decimalCt = -Math.abs(options.decimalCt || 0);
+    this.decimalCt = Math.abs(options.decimalCt || 0);
   };
 
   Digital.prototype = {
     get width() {
-      return this.dstWidth * this.colCt;
+      if (!this.decimalCt) {
+        return this.dstWidth * this.digitCt;
+      } else {
+        return this.dstWidth * (this.digitCt + 0.5 + this.decimalCt);
+      }
     },
 
     get height() {
@@ -34,53 +38,104 @@ var window = window || this;
     },
 
     get colCt() {
-      return this.digitCt;
-    },
-
-    srcXminus: function() {
-      return 5 * this.srcWidth;
-    },
-
-    srcYminus: function() {
-      return 1 * this.srcHeight;
+      if (!this.decimalCt) {
+        return this.digitCt;
+      } else {
+        return this.digitCt + 1 + Math.abs(this.decimalCt);
+      }
     },
 
     srcX: function(ones) {
       return (ones % 5) * this.srcWidth;
     },
+
     srcY: function(ones) {
       return Math.floor(ones / 5) * this.srcHeight;
     },
+
     dstX: function(place) {
-      return (this.digitCt - place - 1) * (this.dstWidth);
+      var n = (this >= 0) ? 1 : 2;
+      var d = (place < 0) ? 1 : 0;
+      return (this.digitCt - place - n + d) * (this.dstWidth);
     },
+
     dstY: function(place) {
       return 0;
     },
 
+    decSrcX: function() {
+      return 5 * this.srcWidth;
+    },
+
+    decSrcY: function() {
+      return 0 * this.srcHeight;
+    },
+
+    decSrcWidth: function() {
+      return this.srcWidth * 0.5;
+    },
+
+    decDstWidth: function() {
+      return this.dstWidth * 0.5;
+    },
+
+    negSrcX: function() {
+      return 5 * this.srcWidth;
+    },
+
+    negSrcY: function() {
+      return 1 * this.srcHeight;
+    },
+
     draw: function(ctx) {
-      var negative, p, pStart, d;
+      var negative, p, pStart, pEnd, d, h, s;
       negative = (this<0);
 
-      if (negative) {
-        ctx.drawImage(this.img,
-          this.srcXminus(), this.srcYminus(), this.srcWidth, this.srcHeight,
-          0, 0, this.dstWidth, this.dstHeight
-        );
+      if (this < 0) {
+        h = 1;
         pStart = this.digitCt - 2;
+        // Draw minus sign;
+        s = 0;
+        p = this.digitCt - 1;
+        ctx.drawImage(this.img,
+          this.negSrcX(), this.negSrcY(), this.srcWidth, this.srcHeight,
+          s * this.dstWidth, 0, this.dstWidth, this.dstHeight
+        );
+
       } else {
+        h = 0;
+        s = -1;
         pStart = this.digitCt - 1;
       }
 
       for (p = pStart; p>=0; p--) {
         d = singleDigit(this, p);
+        s = s + 1;
         ctx.drawImage(this.img,
-          this.srcX(d), this.srcY(d), this.srcWidth, this.srcHeight,
-          this.dstX(p), this.dstY(p), this.dstWidth, this.dstHeight
+          this.srcX(d),   this.srcY(d),   this.srcWidth, this.srcHeight,
+          s * this.dstWidth, 0, this.dstWidth, this.dstHeight
         );
       }
 
-      if (!this.decimalCt) { return; }
+      if (this.decimalCt === 0) {
+        return;
+      }
+
+      s = s + 1;
+      ctx.drawImage(this.img,
+        this.decSrcX(), this.decSrcY(),   this.srcWidth, this.srcHeight,
+        s * this.dstWidth, 0, this.decDstWidth(), this.dstHeight
+      );
+      s = s - 0.5;
+
+      for (p = 1; p<=this.decimalCt; p++) {
+        s = s + 1;
+        d = singleDigit(this, -p);
+        ctx.drawImage(this.img,
+          this.srcX(d), this.srcY(d), this.srcWidth, this.srcHeight,
+          s * this.dstWidth, 0, this.dstWidth, this.dstHeight
+        );
+      }
     }
   };
 
