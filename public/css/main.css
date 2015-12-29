@@ -1,7 +1,7 @@
 #main {
   height: 350px;
   width: 0px; /* Javascript will override this value */
-  padding: 0;
+  padding: 0px 20px;
   margin: 0;
   margin-left: auto;
   margin-right: auto;

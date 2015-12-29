@@ -68,7 +68,7 @@ var window = window || this;
     },
 
     resizeHTML: function() {
-      this.main.style.width = this.tiles.width + 100;
+      this.main.style.width = this.tiles.width;
     },
 
     deleteSubViews: function() {
