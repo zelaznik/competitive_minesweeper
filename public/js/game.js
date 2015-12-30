@@ -74,13 +74,22 @@ var window = window || this;
       return this._counts[val] || 0;
     },
 
-    reveal: function(pos, callback) {
+    reveal: function(pos, callbacks, level) {
+      callbacks = callbacks || {};
+      level = level || 0;
+
       var val = this.get(pos);
       if (val !== undefined && val !== '?') {
+        if (level === 0 && callbacks.invalid) {
+          callbacks.invalid();
+        }
         return {};
       }
 
-      callback = callback || function() {};
+      if (!callbacks.success) {
+        callbacks.success = function() {};
+      }
+
       var result = this.proxy(pos);
 
       if (result.mine) {
@@ -88,13 +97,16 @@ var window = window || this;
       }
 
       this.set(pos, result.nearbyCount);
-      callback(pos);
+      callbacks.success(pos);
 
       if (result.nearbyCount === 0) {
+        if (level === 0 && callbacks.sweep) {
+          callbacks.sweep();
+        }
         for (var i in result.neighbors) {
           var neighbor = result.neighbors[i];
-          callback(neighbor);
-          this.reveal(neighbor, callback);
+          callbacks.success(neighbor);
+          this.reveal(neighbor, callbacks, level + 1);
         }
       }
 
@@ -102,7 +114,7 @@ var window = window || this;
       // as long as every non-mine has already been turned over.
       if ((this.count('flag') + this.count('?') + this.count(undefined)) === this.mineCt) {
         this.forEach(function(val, coord) {
-          this.ensureFlag(coord, callback);
+          this.ensureFlag(coord, callbacks.success);
         }.bind(this));
         return this.win(pos, result);
       }

@@ -35,6 +35,7 @@ var window = window || this;
       this.main = options.main;
       this.menu = options.menu;
       this.body = options.body;
+      this.sounds = options.sounds;
       this.resetButton = options.resetButton;
       this.timer_canvas = options.timer_canvas;
       this.score_canvas = options.score_canvas;
@@ -259,7 +260,7 @@ var window = window || this;
         return;
       }
       var callback = this.visualSweep();
-      var result = callFwd(pos, callback);
+      var result = callFwd.success(pos, callback);
 
       if (!!result.mine || result.won) {
         this.draw();
@@ -275,8 +276,10 @@ var window = window || this;
     },
 
     sweep: function(e) {
-      var game = this.game;
-      this.handlerBase(e, game.sweep.bind(game));
+      var game = this.game, wasSuccess, result;
+      this.handlerBase(e, {
+        success: game.sweep.bind(game)
+      });
     },
 
     toggleFlag: function(e) {

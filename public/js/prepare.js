@@ -11,6 +11,7 @@
       }
       var view = window.view = new View({
         document: options.document,
+        sounds: options.sounds,
         canvas: options.canvas,
         menu: options.menu,
         body: options.body,
