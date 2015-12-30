@@ -1,5 +1,3 @@
-var window = window || this;
-
 (function() {
   'use strict';
 
