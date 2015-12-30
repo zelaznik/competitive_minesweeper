@@ -30,6 +30,20 @@ body.failure > #cssmenu {
   transition: all 0.05s;
 }
 
+body.success > #cssmenu ul li:hover,
+body.success > #cssmenu ul li.active {
+  background: -moz-linear-gradient(top, #00be00 0%, #005c00 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #00be00), color-stop(100%, #005c00));
+  background: -webkit-linear-gradient(top, #00be00 0%, #005c00 100%);
+  background: -o-linear-gradient(top, #00be00 0%, #005c00 100%);
+  background: -ms-linear-gradient(top, #00be00 0%, #005c00 100%);
+  background: linear-gradient(to bottom, #00be00 0%, #005c00 100%);
+}
+
+body.success > #cssmenu #bg-one {
+  background: #005c00;
+}
+
 .border-concave {
   border-style: solid;
   border: 1px 1px 1px 1px;
