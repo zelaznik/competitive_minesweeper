@@ -94,6 +94,7 @@
       var view = this;
       var mouseDown = {left: false, right: false};
 
+      var isPressed = {};
       var choices = view.menu.getElementsByClassName('level-choice');
 
       var addListenerTo = function(choice) {
@@ -111,16 +112,21 @@
       }
 
       // Converts button codes to 'left', 'right', 'middle'.
-      var desc = {'0': 'left', '1': 'middle', '2': 'right'};
-      function label(e) {
-        return desc[e.button];
+      var buttonDesc = {'0': 'left', '1': 'middle', '2': 'right'};
+      function button(e) {
+        return buttonDesc[e.button];
+      }
+
+      var buttonsDesc = {'0': 'none', '1': 'left', '2': 'right', '3': 'both'};
+      function buttons(e) {
+        return buttonsDesc[e.buttons];
       }
 
       var clickId = 0;
       var dbg = function(action, callback) {
         // Only use this function for debugging purposes.
         view.canvas.addEventListener(action, function(e) {
-          console.log((++clickId) + ") " + action + ": " + label(e) + ", status: " + JSON.stringify(mouseDown));
+          // console.log((++clickId) + ") " + action + ": button(" + button(e) + "), buttons(" + buttons(e) + "), status: " + JSON.stringify(mouseDown));
           callback(e);
         });
       };
@@ -143,22 +149,22 @@
         }
       });
 
-      on('contextmenu', function(e) {
+      dbg('contextmenu', function(e) {
         e.preventDefault();
-        var btn = label(e);
+        var btn = button(e);
         if (btn === 'left' || !mouseDown.left) {
-          view.toggleFlag(e);
+          view.toggleFlagOrSweep(e);
         }
       });
 
-      on('click', function(e) {
+      dbg('click', function(e) {
         view.reveal(e);
       });
 
-      on('mousedown', function(e) {
-        var btn = label(e);
+      dbg('mousedown', function(e) {
+        var btn = button(e);
         mouseDown[btn] = true;
-        if (mouseDown.left) {
+        if (mouseDown.left && !e.ctrlKey) {
           view.highlightActive(e, {
             includeNeighbors: !!mouseDown.right
           });
@@ -166,8 +172,8 @@
         }
       });
 
-      on('mouseup', function(e) {
-        var btn = label(e);
+      dbg('mouseup', function(e) {
+        var btn = button(e);
         if (mouseDown.left && mouseDown.right) {
           view.sweep(e);
         }
@@ -280,6 +286,22 @@
     toggleFlag: function(e) {
       var game = this.game;
       this.handlerBase(e, game.toggleFlag.bind(game));
+    },
+
+    toggleFlagOrSweep: function(e) {
+      var game = this.game;
+      var pos = this.tiles.calculateCell(e);
+      switch (game.get(pos)) {
+        case undefined:
+        case 'flag':
+        case '?':
+          this.toggleFlag(e);
+          break;
+
+        default:
+          this.sweep(e);
+          break;
+      }
     },
 
     reveal: function(e) {
