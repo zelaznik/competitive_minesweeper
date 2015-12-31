@@ -15,6 +15,9 @@
 
     <title>Competitive Minesweeper Online</title>
 
+    <!-- Pusher Websocket API -->
+    <script src="//js.pusher.com/3.0/pusher.min.js"></script>
+
     <!-- jQuery + menu bar -->
     <link rel="stylesheet" href="css/menu.css">
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
@@ -64,15 +67,21 @@
     </div>
 
     <div id="main" class="border-convex">
-
       <div id="aux" class="aux border-concave">
         <canvas class='aux-item score-canvas' id="score-canvas"></canvas>
         <canvas class="aux-item faces" id="faces-button"></canvas>
         <canvas class='aux-item timer-canvas' id="timer-canvas"></canvas>
       </div>
-
       <canvas class="game border-concave" id="game-canvas"></canvas>
+    </div> <!-- End main -->
 
+    <div id="opponent" class="border-convex">
+      <div class="aux border-concave">
+        <canvas class='aux-item score-canvas' id="score-canvas"></canvas>
+        <canvas class="aux-item faces" id="faces-button"></canvas>
+        <canvas class='aux-item timer-canvas' id="timer-canvas"></canvas>
+      </div>
+      <canvas class="game border-concave" id="game-canvas"></canvas>
     </div> <!-- End main -->
 
     <script>
