@@ -60,6 +60,13 @@ body.success > #cssmenu #bg-one {
   -webkit-transform: translate(-3px, 0px);
 }
 
+.split-screen {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
 .game {
   width: 480px; /* Javascript will override this value */
   padding: 10px 10px 10px 10px;
@@ -85,11 +92,6 @@ body.success > #cssmenu #bg-one {
 
 .aux-item {
   display: inline-block;
-}
-
-.split-screen {
-  display: inline;
-  margin: 30px;
 }
 
 .faces {
