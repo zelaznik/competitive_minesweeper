@@ -68,6 +68,7 @@ body.success > #cssmenu #bg-one {
   margin-right: auto;
   text-align: center;
   background-color: #c4c4c4;
+  display: inline-block;
 }
 
 .board {
@@ -88,6 +89,7 @@ body.success > #cssmenu #bg-one {
 
 .split-screen {
   display: inline;
+  margin: 30px;
 }
 
 .faces {
