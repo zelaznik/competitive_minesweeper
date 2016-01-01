@@ -34,7 +34,8 @@
     <script type="text/javascript" src="js/timer.js"></script>
     <script type="text/javascript" src="js/game.js"></script>
     <script type="text/javascript" src="js/tiles.js"></script>
-    <script type="text/javascript" src="js/view.js"></script>
+    <script type="text/javascript" src="js/view_base.js"></script>
+    <script type="text/javascript" src="js/view_player.js"></script>
     <script type="text/javascript" src="js/prepare.js"></script>
   </head>
 
@@ -94,7 +95,9 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+        // Load your own board.
         prepare({
+          viewType: MainView,
           document: document,
           aux: document.getElementById('aux'),
           main: document.getElementById('main'),
@@ -106,7 +109,9 @@
           resetButton: document.getElementById('main-faces-button')
         });
 
+        // Load your opponent's board.
         prepare({
+          viewType: View,
           document: document,
           aux: document.getElementById('aux'),
           menu: document.getElementById("cssmenu"),

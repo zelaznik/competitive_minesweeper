@@ -9,7 +9,7 @@
       if (remainingCt > 0) {
         return;
       }
-      var view = window.view = new View({
+      var view = window.view = new options.viewType({
         document: options.document,
         canvas: options.canvas,
         menu: options.menu,
