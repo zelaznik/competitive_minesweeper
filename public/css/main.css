@@ -86,26 +86,26 @@ body.success > #cssmenu #bg-one {
   display: inline-block;
 }
 
-#faces-button {
+.faces {
   background-image: url('../images/faces.png');
   width: 36px;
   height: 36px;
   background-position: 0px 0px;
 }
 
-#faces-button.open-mouth {
+.faces.open-mouth {
   background-position: 0px 36px;
 }
 
-#faces-button.frown {
+.faces.frown {
   background-position: 0px 72px;
 }
 
-#faces-button.sunglasses {
+.faces.sunglasses {
   background-position: -36px 0px;
 }
 
-#faces-button:active {
+.faces:active {
   background-position: -36px 72px;
 }
 
