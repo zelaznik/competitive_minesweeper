@@ -66,23 +66,27 @@
      </ul>
     </div>
 
-    <div id="main" class="border-convex">
-      <div id="aux" class="aux border-concave">
-        <canvas class='aux-item score-canvas' id="score-canvas"></canvas>
-        <canvas class="aux-item faces" id="faces-button"></canvas>
-        <canvas class='aux-item timer-canvas' id="timer-canvas"></canvas>
-      </div>
-      <canvas class="game border-concave" id="game-canvas"></canvas>
-    </div> <!-- End main -->
+    <div class="split-screen">
 
-    <div id="opponent" class="border-convex">
-      <div class="aux border-concave">
-        <canvas class='aux-item score-canvas' id="score-canvas"></canvas>
-        <canvas class="aux-item faces" id="faces-button"></canvas>
-        <canvas class='aux-item timer-canvas' id="timer-canvas"></canvas>
-      </div>
-      <canvas class="game border-concave" id="game-canvas"></canvas>
-    </div> <!-- End main -->
+      <div id="main" class="border-convex">
+        <div id="aux" class="aux border-concave">
+          <canvas class='aux-item score-canvas' id="main-score-canvas"></canvas>
+          <canvas class="aux-item faces" id="main-faces-button"></canvas>
+          <canvas class='aux-item timer-canvas' id="main-timer-canvas"></canvas>
+        </div>
+        <canvas class="game border-concave" id="main-game-canvas"></canvas>
+      </div> <!-- End main -->
+
+      <div id="opponent" class="border-convex">
+        <div class="aux border-concave">
+          <canvas class='aux-item score-canvas' id="opponent-score-canvas"></canvas>
+          <canvas class="aux-item faces" id="opponent-faces-button"></canvas>
+          <canvas class='aux-item timer-canvas' id="opponent-timer-canvas"></canvas>
+        </div>
+        <canvas class="game border-concave" id="opponent-game-canvas"></canvas>
+      </div> <!-- End main -->
+
+    </div>
 
     <script>
       document.addEventListener("DOMContentLoaded", function() {
@@ -91,12 +95,25 @@
           aux: document.getElementById('aux'),
           main: document.getElementById('main'),
           menu: document.getElementById("cssmenu"),
-          canvas: document.getElementById('game-canvas'),
+          canvas: document.getElementById('main-game-canvas'),
           body: document.getElementsByTagName('body')[0],
-          timer_canvas: document.getElementById('timer-canvas'),
-          score_canvas: document.getElementById('score-canvas'),
-          resetButton: document.getElementById('faces-button')
+          timer_canvas: document.getElementById('main-timer-canvas'),
+          score_canvas: document.getElementById('main-score-canvas'),
+          resetButton: document.getElementById('main-faces-button')
         });
+
+        prepare({
+          document: document,
+          aux: document.getElementById('aux'),
+          main: document.getElementById('main'),
+          menu: document.getElementById("cssmenu"),
+          canvas: document.getElementById('opponent-game-canvas'),
+          body: document.getElementsByTagName('body')[0],
+          timer_canvas: document.getElementById('opponent-timer-canvas'),
+          score_canvas: document.getElementById('opponent-score-canvas'),
+          resetButton: document.getElementById('opponent-faces-button')
+        });
+
       });
     </script>
   </body>

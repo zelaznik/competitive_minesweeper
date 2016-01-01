@@ -60,7 +60,7 @@ body.success > #cssmenu #bg-one {
   -webkit-transform: translate(-3px, 0px);
 }
 
-#main {
+#main, #opponent {
   width: 480px; /* Javascript will override this value */
   padding: 10px 10px 10px 10px;
   margin-top: 20px;
@@ -84,6 +84,10 @@ body.success > #cssmenu #bg-one {
 
 .aux-item {
   display: inline-block;
+}
+
+.split-screen {
+  display: inline;
 }
 
 .faces {
