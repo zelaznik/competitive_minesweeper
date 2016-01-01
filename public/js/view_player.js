@@ -16,23 +16,6 @@
       var view = this;
       var mouseDown = {left: false, right: false};
 
-      var isPressed = {};
-      var choices = view.menu.getElementsByClassName('level-choice');
-
-      var addListenerTo = function(choice) {
-        var levelName = choice.getAttribute('name');
-        choice.addEventListener('click', function(e) {
-          for (var j=0; j<choices.length; j++) {
-            choices[j].classList.remove('active');
-          }
-          e.currentTarget.classList.add('active');
-          view.reset({level: levelName});
-        });
-      };
-      for (var i=0; i<choices.length; i++) {
-        addListenerTo(choices[i]);
-      }
-
       // Converts button codes to 'left', 'right', 'middle'.
       var buttonDesc = {'0': 'left', '1': 'middle', '2': 'right'};
       function button(e) {
@@ -45,14 +28,6 @@
       }
 
       var clickId = 0;
-      var dbg = function(action, callback) {
-        // Only use this function for debugging purposes.
-        view.canvas.addEventListener(action, function(e) {
-          // console.log((++clickId) + ") " + action + ": button(" + button(e) + "), buttons(" + buttons(e) + "), status: " + JSON.stringify(mouseDown));
-          callback(e);
-        });
-      };
-
       var resetButton = options.resetButton;
       var on = view.canvas.addEventListener.bind(view.canvas);
 
@@ -71,7 +46,7 @@
         }
       });
 
-      dbg('contextmenu', function(e) {
+      on('contextmenu', function(e) {
         e.preventDefault();
         var btn = button(e);
         if (btn === 'left' || !mouseDown.left) {
@@ -79,11 +54,11 @@
         }
       });
 
-      dbg('click', function(e) {
+      on('click', function(e) {
         view.reveal(e);
       });
 
-      dbg('mousedown', function(e) {
+      on('mousedown', function(e) {
         var btn = button(e);
         mouseDown[btn] = true;
         if (mouseDown.left && !e.ctrlKey) {
@@ -94,7 +69,7 @@
         }
       });
 
-      dbg('mouseup', function(e) {
+      on('mouseup', function(e) {
         var btn = button(e);
         if (mouseDown.left && mouseDown.right) {
           view.sweep(e);

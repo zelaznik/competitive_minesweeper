@@ -95,8 +95,10 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+        var views = [];
         // Load your own board.
-        prepare({
+        var mainView = prepare({
+          views: views,
           viewType: MainView,
           document: document,
           aux: document.getElementById('aux'),
@@ -110,7 +112,8 @@
         });
 
         // Load your opponent's board.
-        prepare({
+        var opponentView = prepare({
+          views: views,
           viewType: View,
           document: document,
           aux: document.getElementById('aux'),
@@ -121,6 +124,11 @@
           timer_canvas: document.getElementById('opponent-timer-canvas'),
           score_canvas: document.getElementById('opponent-score-canvas'),
           resetButton: document.getElementById('opponent-faces-button')
+        });
+
+        respondToButtons({
+          document: document,
+          views: views
         });
 
       });
