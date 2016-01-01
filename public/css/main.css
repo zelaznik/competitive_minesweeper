@@ -60,7 +60,7 @@ body.success > #cssmenu #bg-one {
   -webkit-transform: translate(-3px, 0px);
 }
 
-#main, #opponent {
+.game {
   width: 480px; /* Javascript will override this value */
   padding: 10px 10px 10px 10px;
   margin-top: 20px;
@@ -70,7 +70,7 @@ body.success > #cssmenu #bg-one {
   background-color: #c4c4c4;
 }
 
-.game {
+.board {
   display: block;
   clear: both;
   text-align: center;
