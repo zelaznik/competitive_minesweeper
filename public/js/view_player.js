@@ -7,6 +7,8 @@
   };
 
   MainView.inherits(View, {
+    gameType: window.MainGame,
+
     addListeners: function(options) {
       // Don't need to run this twice in case a game is reset.
       if (this._listenersAdded) {

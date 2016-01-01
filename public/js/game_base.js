@@ -3,8 +3,6 @@
 
   var Grid = window.Grid;
 
-  var mineFieldProxy = window.mineFieldProxy;
-
   var Game = window.Game = function Game(options) {
     var level = Game.levels[options.level] || {};
     options.rowCt = options.rowCt || level.rowCt;
@@ -18,9 +16,6 @@
     this._counts = {undefined: this.cellCt};
     this.hiddenCt = this.cellCt;
     this.mineCt = options.mineCt;
-    // The actual data is locked in a closure.
-    // No peeking allowed
-    this.proxy = mineFieldProxy(this);
     this.over = false;
   };
 
