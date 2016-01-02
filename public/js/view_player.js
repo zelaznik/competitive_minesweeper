@@ -9,7 +9,7 @@
   MainView.inherits(View, {
     gameType: window.MainGame,
 
-    start: function() {
+    start: function(options) {
       View.prototype.start.call(this, options);
     },
 
