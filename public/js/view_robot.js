@@ -15,6 +15,9 @@
       var view = this;
       this._tick = function() {
         var pos = randomMoves[i++];
+        while (view.game.get(pos) !== undefined) {
+          pos = randomMoves[i++];
+        }
         view.reveal(pos);
         view.draw();
       };
@@ -23,7 +26,7 @@
 
     stop: function(options) {
       View.prototype.stop.call(this, options);
-      clearInterval(this._tick, 1500);
+      clearInterval(this._tick);
     },
 
     reset: function(newOptions) {
