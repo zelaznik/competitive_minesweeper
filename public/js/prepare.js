@@ -33,23 +33,6 @@
       if (remainingCt > 0) {
         return;
       }
-
-      var view = new options.viewType({
-        document: options.document,
-        canvas: options.canvas,
-        views: options.views,
-        menu: options.menu,
-        body: options.body,
-        aux: options.aux,
-        timer_canvas: options.timer_canvas,
-        score_canvas: options.score_canvas,
-        resetButton: options.resetButton,
-        main: options.main,
-        files: {
-          'digits': imgDigits, 'faces': imgFaces, 'tiles': imgTiles
-        }
-      });
-
       view.draw();
       views.push(view);
     };
@@ -65,6 +48,23 @@
     imgDigits = window.imgDigits = stage('images/digits.png');
     imgTiles = window.imgTiles = stage('images/tiles.png');
     imgFages = window.imgFages = stage('images/faces.png');
+
+    var view = new options.viewType({
+      document: options.document,
+      canvas: options.canvas,
+      opponentView: options.opponentView,
+      menu: options.menu,
+      body: options.body,
+      aux: options.aux,
+      timer_canvas: options.timer_canvas,
+      score_canvas: options.score_canvas,
+      resetButton: options.resetButton,
+      main: options.main,
+      files: {
+        'digits': imgDigits, 'faces': imgFaces, 'tiles': imgTiles
+      }
+    });
+    return view;
   };
 
 })();

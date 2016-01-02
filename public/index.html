@@ -34,6 +34,7 @@
     <script type="text/javascript" src="js/timer.js"></script>
     <script type="text/javascript" src="js/game_base.js"></script>
     <script type="text/javascript" src="js/game_player.js"></script>
+    <script type="text/javascript" src="js/game_robot.js"></script>
     <script type="text/javascript" src="js/tiles.js"></script>
     <script type="text/javascript" src="js/view_base.js"></script>
     <script type="text/javascript" src="js/view_player.js"></script>
@@ -98,25 +99,12 @@
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         var views = [];
-        // Load your own board.
-        var mainView = prepare({
-          views: views,
-          viewType: MainView,
-          document: document,
-          aux: document.getElementById('aux'),
-          main: document.getElementById('main'),
-          menu: document.getElementById("cssmenu"),
-          body: document.getElementsByTagName('body')[0],
-          canvas: document.getElementById('main-board-canvas'),
-          timer_canvas: document.getElementById('main-timer-canvas'),
-          score_canvas: document.getElementById('main-score-canvas'),
-          resetButton: document.getElementById('main-faces-button')
-        });
 
         // Load your opponent's board.
         var opponentView = prepare({
           views: views,
-          viewType: View,
+          viewType: RobotView,
+
           document: document,
           aux: document.getElementById('aux'),
           menu: document.getElementById("cssmenu"),
@@ -126,6 +114,23 @@
           timer_canvas: document.getElementById('opponent-timer-canvas'),
           score_canvas: document.getElementById('opponent-score-canvas'),
           resetButton: document.getElementById('opponent-faces-button')
+        });
+
+        // Load your own board.
+        var mainView = prepare({
+          views: views,
+          viewType: MainView,
+          opponentView: opponentView,
+
+          document: document,
+          aux: document.getElementById('aux'),
+          main: document.getElementById('main'),
+          menu: document.getElementById("cssmenu"),
+          body: document.getElementsByTagName('body')[0],
+          canvas: document.getElementById('main-board-canvas'),
+          timer_canvas: document.getElementById('main-timer-canvas'),
+          score_canvas: document.getElementById('main-score-canvas'),
+          resetButton: document.getElementById('main-faces-button')
         });
 
         respondToButtons({

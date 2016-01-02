@@ -3,6 +3,7 @@
 
   window.MainView = function MainView(options) {
     View.call(this, options);
+    this.opponentView = options.opponentView;
     this.addListeners(options);
   };
 
@@ -11,14 +12,17 @@
 
     start: function(options) {
       View.prototype.start.call(this, options);
+      this.opponentView.start();
     },
 
     stop: function(options) {
       View.prototype.stop.call(this, options);
+      this.opponentView.stop();
     },
 
     reset: function(newOptions) {
       View.prototype.reset.call(this, newOptions);
+      this.opponentView.reset();
     },
 
     addListeners: function(options) {
