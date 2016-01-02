@@ -15,7 +15,6 @@
       var view = this;
       this._tick = function() {
         var pos = randomMoves[i++];
-        console.log(JSON.stringify(pos));
         view.reveal(pos);
         view.draw();
       };

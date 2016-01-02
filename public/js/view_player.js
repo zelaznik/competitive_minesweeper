@@ -25,6 +25,11 @@
       this.opponentView.reset();
     },
 
+    handlerBase: function(e, callFwd) {
+      var pos = this.tiles.calculateCell(e);
+      View.prototype.handlerBase.call(this, pos, callFwd);
+    },
+
     addListeners: function(options) {
       // Don't need to run this twice in case a game is reset.
       if (this._listenersAdded) {

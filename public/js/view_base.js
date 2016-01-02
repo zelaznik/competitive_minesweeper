@@ -134,12 +134,11 @@
       return this._sweep;
     },
 
-    handlerBase: function(e, callFwd) {
+    handlerBase: function(pos, callFwd) {
       if (this.game.over) {
         return;
       }
 
-      var pos = this.tiles.calculateCell(e);
       if (!this.game.inRange(pos)) {
         return;
       }
