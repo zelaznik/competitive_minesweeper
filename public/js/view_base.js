@@ -36,6 +36,7 @@
       this.main = options.main;
       this.menu = options.menu;
       this.body = options.body;
+      this.views = options.views;
       this.resetButton = options.resetButton;
       this.timer_canvas = options.timer_canvas;
       this.score_canvas = options.score_canvas;

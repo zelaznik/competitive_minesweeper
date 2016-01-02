@@ -37,6 +37,7 @@
       var view = new options.viewType({
         document: options.document,
         canvas: options.canvas,
+        views: options.views,
         menu: options.menu,
         body: options.body,
         aux: options.aux,

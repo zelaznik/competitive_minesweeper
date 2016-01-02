@@ -24,6 +24,9 @@
       cells = cells.slice(0,i).concat(cells.slice(i+1));
     }
 
+    // Random moves for the computer robot.
+    this.randomMoves = shuffle(cells);
+
     // Pre-calculate the number of mines nearby.
     var nearby = this.nearby = {};
     this.forEach(function(val, pos) {
@@ -31,7 +34,7 @@
     }.bind(this));
   };
 
-  Minefield.inherits(Grid, ({
+  Minefield.inherits(Grid, {
     reveal: function(pos) {
       var hasMine = !!this.get(pos);
       return {
@@ -53,7 +56,7 @@
       }
       return ct;
     }
-  }));
+  });
 
   window.mineFieldProxy = function(options) {
     var minefield;

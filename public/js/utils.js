@@ -1,6 +1,17 @@
 (function() {
   'use strict';
 
+  window.shuffle = function(arr) {
+    for (var i=0, n=arr.length; i<n; i++) {
+      var j = Math.floor((n - i) * Math.random());
+      var temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+    }
+
+    return arr;
+  };
+
   window.makeGrey = function(color) {
     var pure, red, green, blue, grey, asHex;
     pure = color.replace('#', '');
