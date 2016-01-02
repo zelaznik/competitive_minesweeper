@@ -9,6 +9,18 @@
   MainView.inherits(View, {
     gameType: window.MainGame,
 
+    start: function() {
+      View.prototype.start.call(this, options);
+    },
+
+    stop: function(options) {
+      View.prototype.stop.call(this, options);
+    },
+
+    reset: function(newOptions) {
+      View.prototype.reset.call(this, newOptions);
+    },
+
     addListeners: function(options) {
       // Don't need to run this twice in case a game is reset.
       if (this._listenersAdded) {
