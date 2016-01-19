@@ -82,7 +82,8 @@
           <canvas class='aux-item timer-canvas' id="main-timer-canvas"></canvas>
         </div>
         <canvas class="board border-concave" id="main-board-canvas"></canvas>
-      </div> <!-- End main -->
+      </div>
+      <!-- End main -->
 
       <div id="padding" class="padding"></div>
 
@@ -93,7 +94,8 @@
           <canvas class='aux-item timer-canvas' id="opponent-timer-canvas"></canvas>
         </div>
         <canvas class="board border-concave" id="opponent-board-canvas"></canvas>
-      </div> <!-- End main -->
+      </div>
+      <!-- End Opponent -->
 
     </div> <!-- End Split Screen -->
 
@@ -104,8 +106,6 @@
         var mainViewType;
         var views = [];
 
-        var $splitScreen = $('#split-screen');
-        // var mainBoard = mineSweeperBoard({category: 'main'});
         function getBoard(category) {
           return {
             main: document.getElementById(category),
