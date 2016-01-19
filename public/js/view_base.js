@@ -95,7 +95,7 @@
       ctx.fillRect(0, 0, View.WIDTH, View.HEIGHT);
     },
 
-    _start: function(options) {
+    start: function(options) {
       this.game.begun = true;
       this.timer.start();
       this._drawTimer = setInterval(
@@ -104,13 +104,13 @@
       );
     },
 
-    _stop: function(options) {
+    stop: function(options) {
       this.timer.stop();
       clearInterval(this._drawTimer);
       delete this._drawTimer;
     },
 
-    _reset: function(newOptions) {
+    reset: function(newOptions) {
       this.timer.reset();
       this.deleteSubViews();
       delete this.game;
@@ -121,21 +121,6 @@
       this.resetButton.classList.remove('frown');
       View.call(this, $.extend(this.options, newOptions));
       this.draw();
-    },
-
-    start: function(options) {
-      debug('Starting View: ' + this.constructor.name);
-      this._start(options);
-    },
-
-    stop: function(options) {
-      debug('Stopping View: ' + this.constructor.name);
-      this._stop(options);
-    },
-
-    reset: function(options) {
-      debug("Resetting View: " + this.constructor.name);
-      this._reset(options);
     },
 
     visualSweep: function() {
