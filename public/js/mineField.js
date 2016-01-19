@@ -26,9 +26,7 @@
       }
     });
 
-    if (firstPositionFound) {
-      cells.push(firstPos);
-    } else {
+    if (!firstPositionFound) {
       throw "Could not match the first position of the click.";
     }
 
@@ -40,6 +38,7 @@
     }
 
     // Random moves for the computer robot.
+    cells.push(firstPos);
     this.randomMoves = shuffle(cells);
     this.randomFlags = shuffle(flags);
 

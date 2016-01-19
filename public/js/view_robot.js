@@ -10,21 +10,24 @@
 
     start: function(options) {
       var randomMoves, randomFlags, debugGetValues;
-      var pos, view, match, x, i, n, ct;
+      var pos, view, match, x, i, n, ct, p, totalMoves;
 
       CompetitiveView.prototype.start.call(this, options);
 
       randomMoves = this.game.mineField.randomMoves;
       randomFlags = this.game.mineField.randomFlags;
+      pos = randomMoves.pop(); // Pre-load first move.
       view = this;
 
       this._tick = setInterval(function() {
-        // Either flag a mine or reveal a new square, 50-50 odds.
-        if (randomFlags.length >= 1 && Math.random() < 0.5) {
+        // Either flag a mine or reveal a new square.
+        totalMoves = randomFlags.length + randomMoves.length;
+        p = (totalMoves === 0) ? 0 : randomFlags.length / totalMoves;
+        if (Math.random() < (1 + p) / 2) {
           view.toggleFlag(randomFlags.pop());
 
         } else {
-          while (!pos || view.game.get(pos) !== undefined) {
+          while (view.game.get(pos) !== undefined) {
             pos = randomMoves.pop();
           }
           view.reveal(pos);
