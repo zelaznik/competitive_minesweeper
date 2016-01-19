@@ -5,8 +5,9 @@
 
   window.RobotGame = function RobotGame(options) {
     Game.call(this, options);
-    // The actual data is locked in
-    // a closure. No peeking allowed
+
+    // The robot gets to view the board, unlike a human player.
+    // The robot will NEVER make a mistake under this implementation.
     var mineField = this.mineField = new Minefield($.extend(options, {
       firstPos: {r:0, c:0}
     }));

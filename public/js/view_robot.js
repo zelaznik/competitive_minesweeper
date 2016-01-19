@@ -9,31 +9,37 @@
     gameType: window.RobotGame,
 
     start: function(options) {
+      var randomMoves, randomFlags, debugGetValues;
+      var pos, view, match, x, i, n, ct;
+
       CompetitiveView.prototype.start.call(this, options);
 
-      var randomMoves = this.game.mineField.randomMoves;
-      var randomFlags = this.game.mineField.randomFlags;
-      var i = 0;
-      var view = this;
+      randomMoves = this.game.mineField.randomMoves;
+      randomFlags = this.game.mineField.randomFlags;
+      view = this;
 
-      var remainingFlags = randomFlags.length;
       this._tick = setInterval(function() {
-        var pos = randomMoves[i++];
-
-        while (view.game.get(pos) !== undefined) {
-          i = (i + 1 + randomMoves.length) % randomMoves.length;
-          pos = randomMoves[i];
-        }
-
-        if (remainingFlags > 1 && Math.random() < 0.5) {
+        // Either flag a mine or reveal a new square, 50-50 odds.
+        if (randomFlags.length >= 1 && Math.random() < 0.5) {
           view.toggleFlag(randomFlags.pop());
-          remainingFlags -= 1;
+
         } else {
+          match = false;
+          for (i = 0, n = randomMoves.length; i<n; i++) {
+            pos = randomMoves[i];
+            if (view.game.get(pos) === undefined) {
+              match = true;
+              break;
+            }
+          }
+          if (!match) {
+            throw "Could not find square that hasn't already been revealed.";
+          }
           view.reveal(pos);
         }
         view.draw();
 
-      }, 1500);
+      }.bind(this), 50);
     },
 
     stop: function(options) {

@@ -9,15 +9,28 @@
     // The first cell clicked can never contain a mine.
     var b, r, c, m, i, pos, iMax;
 
-    var cells = [];
-    var flags = [];
+    var allCellsButTheFirst = [];
+    var cells = []; // List of sqaures without mines.
+    var flags = []; // List of squares with mines, to be "flagged".
+
+    // The first square can never reveal a mine.
+    // So the board is calculated after the first click.
+    var firstPositionFound = false;
     var firstPos = options.firstPos;
     var firstIndex = '' + [firstPos.r, firstPos.c];
     this.forEach(function(val, pos) {
-      if (([pos.r,pos.c]+'') !== firstIndex) {
+      if (('' + [pos.r,pos.c]) !== firstIndex) {
         cells.push(pos);
+      } else {
+        firstPositionFound = true;
       }
     });
+
+    if (firstPositionFound) {
+      cells.push(firstPos);
+    } else {
+      throw "Could not match the first position of the click.";
+    }
 
     for (m = 0; m < this.mineCt; m++) {
       i = Math.floor(Math.random() * cells.length);
