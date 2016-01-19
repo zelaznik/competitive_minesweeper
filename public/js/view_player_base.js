@@ -1,11 +1,22 @@
 (function() {
   'use strict';
 
-  window.PlayerView = function PlayerView() {
-
+  window.PlayerView = function PlayerView(options) {
+    View.call(this, options);
+    this.addListeners(options);
   };
 
   PlayerView.inherits(View, {
+    onWin: function(options) {
+      View.prototype.onWin.call(this, options);
+      this.body.classList.add('success');
+    },
+
+    onLose: function(options) {
+      View.prototype.onLose.call(this, options);
+      this.body.classList.add('failure');
+    },
+
     addListeners: function(options) {
       // Don't need to run this twice in case a game is reset.
       if (this._listenersAdded) {

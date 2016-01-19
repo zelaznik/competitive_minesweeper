@@ -8,8 +8,13 @@
     game view is triggered.
   */
 
-  var CompetitiveView = window.CompetitiveView = {
+  window.CompetitiveView = function CompetitiveView(options) {
+    this.opponentView = options.opponentView;
+  };
+
+  CompetitiveView.prototype = {
     // This prototype is solely designed for mixins, not inheritance;
+
     setOpponentView: function(opponentView) {
       this.opponentView = opponentView;
     },
@@ -46,7 +51,7 @@
     makeLose: function(options) {
       this.onLose(options);
       this._triggerOpponent('makeWin', options);
-    },
+    }
 
   };
 

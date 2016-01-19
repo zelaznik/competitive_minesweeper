@@ -2,9 +2,8 @@
   'use strict';
 
   window.CompetitivePlayerView = function CompetitivePlayerView(options) {
-    View.call(this, options);
-    this.opponentView = options.opponentView;
-    this.addListeners(options);
+    PlayerView.call(this, options);
+    CompetitiveView.call(this, options);
   };
 
   CompetitivePlayerView.inherits(PlayerView, mixin(CompetitiveView, {

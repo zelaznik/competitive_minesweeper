@@ -60,6 +60,9 @@
     var output = {};
     for (var i in arguments) {
       var dct = arguments[i];
+      if (dct instanceof Function) {
+        dct = dct.prototype;
+      }
       for (var key in dct) {
         output[key] = dct[key];
       }

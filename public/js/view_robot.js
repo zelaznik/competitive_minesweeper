@@ -44,16 +44,16 @@
         }
         view.draw();
 
-      }.bind(this), 750);
+      }.bind(this), 50);
     },
 
     stop: function(options) {
-      CompetitiveView.stop.call(this, options);
+      CompetitiveView.prototype.stop.call(this, options);
       clearInterval(this._tick);
     },
 
     reset: function(newOptions) {
-      CompetitiveView.reset.call(this, newOptions);
+      CompetitiveView.prototype.reset.call(this, newOptions);
       clearInterval(this._tick);
     }
   }));

@@ -8,45 +8,12 @@
     game view is triggered.
   */
 
-  window.SolorPlayerView = function SolorPlayerView(options) {
+  window.SoloPlayerView = function SoloPlayerView(options) {
     // This is a view solely for single player.
+    PlayerView.call(this, options);
   };
 
-  SolorPlayerView.inherits(View, mixin(PlayerView, {
-    _triggerOpponent: function(methodName, options) {
-      if (options && options.calledFromOpponent) {
-        return;
-      }
-      this.opponentView[methodName]({
-        calledFromOpponent: true
-      });
-    },
-
-    start: function(options) {
-      View.prototype.start.call(this, options);
-      this._triggerOpponent('start', options);
-    },
-
-    stop: function(options) {
-      View.prototype.stop.call(this, options);
-      this._triggerOpponent('stop', options);
-    },
-
-    reset: function(newOptions) {
-      View.prototype.reset.call(this, newOptions);
-      this._triggerOpponent('reset', newOptions);
-    },
-
-    makeWin: function(options) {
-      this.onWin(options);
-      this._triggerOpponent('makeLose', options);
-    },
-
-    makeLose: function(options) {
-      this.onLose(options);
-      this._triggerOpponent('makeWin', options);
-    }
-
+  SoloPlayerView.inherits(PlayerView, mixin(CompetitiveView, {
   }));
 
 })();

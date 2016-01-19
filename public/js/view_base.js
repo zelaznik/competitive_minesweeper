@@ -161,9 +161,11 @@
     },
 
     onWin: function(options) {
+      this.resetButton.classList.add('sunglasses');
     },
 
-    onLose: function(options) {
+    onLose: function() {
+      this.resetButton.classList.add('frown');
     },
 
     sweep: function(e) {

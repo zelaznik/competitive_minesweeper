@@ -103,6 +103,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         var competitiveMode = true;
+        var mainView, opponentView;
         var views = [];
 
         if (competitiveMode) {
@@ -124,9 +125,9 @@
         }
 
         // Load your own board.
-        var mainView = window.mainView = prepare({
+        mainView = window.mainView = prepare({
           views: views,
-          viewType: competitiveMode ? CompetitivePlayerView : SolorPlayerView,
+          viewType: competitiveMode ? CompetitivePlayerView : SoloPlayerView,
 
           document: document,
           aux: document.getElementById('aux'),
