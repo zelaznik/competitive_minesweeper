@@ -1,13 +1,6 @@
 (function() {
   'use strict';
 
-  /*
-    For the player going against the computer robot.
-    If either game starts, stops, wins, or loses,
-    The corresponding action in the opponent's
-    game view is triggered.
-  */
-
   window.CompetitiveView = function CompetitiveView(options) {
     this.opponentView = options.opponentView;
   };
