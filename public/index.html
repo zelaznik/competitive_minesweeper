@@ -138,16 +138,9 @@
         mainView.setOpponentView(opponentView);
         opponentView.setOpponentView(mainView);
 
-        // setInterval(function() {
-        //   console.log("MainView(elapsed): " + mainView.timer.elapsed());
-        //   console.log("OpponentView(elapsed): " + opponentView.timer.elapsed());
-        //   console.log("MainView: " + JSON.stringify(mainView.timer));
-        //   console.log("OpponentView: " + JSON.stringify(opponentView.timer));
-        // }, 500);
-
         respondToButtons({
           document: document,
-          views: [opponentView]
+          views: views
         });
 
       });
