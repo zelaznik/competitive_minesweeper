@@ -1,28 +1,28 @@
 (function() {
   'use strict';
 
-  window.MainView = function MainView(options) {
+  window.CompetitivePlayerView = function CompetitivePlayerView(options) {
     View.call(this, options);
     this.opponentView = options.opponentView;
     this.addListeners(options);
   };
 
-  MainView.inherits(CompetitiveView, {
+  CompetitivePlayerView.inherits(View, mixin(CompetitiveView, {
     gameType: window.MainGame,
 
     handlerBase: function(e, callFwd) {
       var pos = this.tiles.calculateCell(e);
-      CompetitiveView.prototype.handlerBase.call(this, pos, callFwd);
+      View.prototype.handlerBase.call(this, pos, callFwd);
     },
 
     onWin: function() {
-      CompetitiveView.prototype.onWin.call(this);
+      View.prototype.onWin.call(this);
       this.body.classList.add('success');
       this.resetButton.classList.add('sunglasses');
     },
 
     onLose: function() {
-      CompetitiveView.prototype.onLose.call(this);
+      View.prototype.onLose.call(this);
       this.body.classList.add('failure');
       this.resetButton.classList.add('frown');
     },
@@ -126,6 +126,6 @@
         } //next row
       } // end neighbors clause
     }
-  });
+  }));
 
 })();

@@ -5,14 +5,14 @@
     View.call(this, options);
   };
 
-  RobotView.inherits(CompetitiveView, {
+  RobotView.inherits(View, mixin(CompetitiveView, {
     gameType: window.RobotGame,
 
     start: function(options) {
       var randomMoves, randomFlags, debugGetValues;
       var pos, view, match, x, i, n, ct, p, totalMoves;
 
-      CompetitiveView.prototype.start.call(this, options);
+      View.prototype.start.call(this, options);
 
       randomMoves = this.game.mineField.randomMoves;
       randomFlags = this.game.mineField.randomFlags;
@@ -30,7 +30,9 @@
           while (view.game.get(pos) !== undefined) {
             pos = randomMoves.pop();
           }
-          view.reveal(pos);
+          if (pos) {
+            view.reveal(pos);
+          }
         }
         view.draw();
 
@@ -38,15 +40,14 @@
     },
 
     stop: function(options) {
-      CompetitiveView.prototype.stop.call(this, options);
+      View.prototype.stop.call(this, options);
       clearInterval(this._tick);
     },
 
     reset: function(newOptions) {
-      CompetitiveView.prototype.reset.call(this, newOptions);
+      View.prototype.reset.call(this, newOptions);
       clearInterval(this._tick);
     }
-
-  });
+  }));
 
 })();

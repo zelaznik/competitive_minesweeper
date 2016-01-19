@@ -39,6 +39,7 @@
     <script type="text/javascript" src="js/tiles.js"></script>
     <script type="text/javascript" src="js/view_base.js"></script>
     <script type="text/javascript" src="js/view_competitive.js"></script>
+    <script type="text/javascript" src="js/view_dummy.js"></script>
     <script type="text/javascript" src="js/view_player.js"></script>
     <script type="text/javascript" src="js/view_robot.js"></script>
     <script type="text/javascript" src="js/prepare.js"></script>
@@ -100,29 +101,31 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function() {
-        var dualViews = {};
+        var competitiveMode = true;
         var views = [];
 
-        // Load your opponent's board.
-        var opponentView = window.opponentView = prepare({
-          views: views,
-          viewType: RobotView,
+        if (competitiveMode) {
+          // Load your opponent's board.
+          var opponentView = window.opponentView = prepare({
+            views: views,
+            viewType: RobotView,
 
-          document: document,
-          aux: document.getElementById('aux'),
-          menu: document.getElementById("cssmenu"),
-          body: document.getElementsByTagName('body')[0],
-          main: document.getElementById('opponent'),
-          canvas: document.getElementById('opponent-board-canvas'),
-          timer_canvas: document.getElementById('opponent-timer-canvas'),
-          score_canvas: document.getElementById('opponent-score-canvas'),
-          resetButton: document.getElementById('opponent-faces-button')
-        });
+            document: document,
+            aux: document.getElementById('aux'),
+            menu: document.getElementById("cssmenu"),
+            body: document.getElementsByTagName('body')[0],
+            main: document.getElementById('opponent'),
+            canvas: document.getElementById('opponent-board-canvas'),
+            timer_canvas: document.getElementById('opponent-timer-canvas'),
+            score_canvas: document.getElementById('opponent-score-canvas'),
+            resetButton: document.getElementById('opponent-faces-button')
+          });
+        }
 
         // Load your own board.
         var mainView = window.mainView = prepare({
           views: views,
-          viewType: MainView,
+          viewType: CompetitivePlayerView,
 
           document: document,
           aux: document.getElementById('aux'),
@@ -135,8 +138,10 @@
           resetButton: document.getElementById('main-faces-button')
         });
 
-        mainView.setOpponentView(opponentView);
-        opponentView.setOpponentView(mainView);
+        if (competitiveMode) {
+          mainView.setOpponentView(opponentView);
+          opponentView.setOpponentView(mainView);
+        }
 
         respondToButtons({
           document: document,

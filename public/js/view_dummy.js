@@ -8,12 +8,11 @@
     game view is triggered.
   */
 
-  window.CompetitiveView = {
-    // This prototype is solely designed for mixins, not inheritance;
-    setOpponentView: function(opponentView) {
-      this.opponentView = opponentView;
-    },
+  window.DummyView = function DummyView(options) {
+    // This is a view solely for single player.
+  };
 
+  DummyView.inherits(View, {
     _triggerOpponent: function(methodName, options) {
       if (options && options.calledFromOpponent) {
         return;
@@ -48,6 +47,6 @@
       this._triggerOpponent('makeWin', options);
     }
 
-  };
+  });
 
 })();

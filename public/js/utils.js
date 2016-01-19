@@ -53,4 +53,15 @@
     }
   };
 
+  window.mixin = function mixin() {
+    var output = {};
+    for (var i in arguments) {
+      var dct = arguments[i];
+      for (var key in dct) {
+        output[key] = dct[key];
+      }
+    }
+    return output;
+  };
+
 })();
