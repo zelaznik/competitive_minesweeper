@@ -152,10 +152,10 @@
         this.draw();
         this.stop();
         if (result.won) {
-          this.onWin();
+          this.makeWin();
 
         } else if (result.mine) {
-          this.onLose();
+          this.makeLose();
         }
       }
     },

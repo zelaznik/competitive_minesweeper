@@ -39,6 +39,16 @@
     reset: function(newOptions) {
       View.prototype.reset.call(this, newOptions);
       this._triggerOpponent('reset', newOptions);
+    },
+
+    makeWin: function(options) {
+      this.onWin(options);
+      this._triggerOpponent('makeLose', options);
+    },
+
+    makeLose: function(options) {
+      this.onLose(options);
+      this._triggerOpponent('makeWin', options);
     }
 
   });
