@@ -44,6 +44,8 @@
       this.canvas = options.canvas;
       this.score_ctx = this.score_canvas.getContext('2d');
       this.timer_ctx = this.timer_canvas.getContext('2d');
+
+      this.getOtherView = options.getOtherView || function() { return undefined; }
     },
 
     addSubViews: function(options) {
@@ -95,7 +97,7 @@
       ctx.fillRect(0, 0, View.WIDTH, View.HEIGHT);
     },
 
-    start: function() {
+    start: function(options) {
       this.game.begun = true;
       this.timer.start();
       this._drawTimer = this.drawTimer.bind(this);

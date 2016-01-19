@@ -7,27 +7,12 @@
     this.addListeners(options);
   };
 
-  MainView.inherits(View, {
+  MainView.inherits(CompetitiveView, {
     gameType: window.MainGame,
-
-    start: function(options) {
-      View.prototype.start.call(this, options);
-      this.opponentView.start();
-    },
-
-    stop: function(options) {
-      View.prototype.stop.call(this, options);
-      this.opponentView.stop();
-    },
-
-    reset: function(newOptions) {
-      View.prototype.reset.call(this, newOptions);
-      this.opponentView.reset();
-    },
 
     handlerBase: function(e, callFwd) {
       var pos = this.tiles.calculateCell(e);
-      View.prototype.handlerBase.call(this, pos, callFwd);
+      CompetitiveView.prototype.handlerBase.call(this, pos, callFwd);
     },
 
     addListeners: function(options) {

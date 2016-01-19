@@ -26,6 +26,7 @@
     <!-- Minesweeper styling and logic -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
+    <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/utils.js"></script>
     <script type="text/javascript" src="js/grid.js"></script>
     <script type="text/javascript" src="js/mineField.js"></script>
@@ -37,6 +38,7 @@
     <script type="text/javascript" src="js/game_robot.js"></script>
     <script type="text/javascript" src="js/tiles.js"></script>
     <script type="text/javascript" src="js/view_base.js"></script>
+    <script type="text/javascript" src="js/view_competitive.js"></script>
     <script type="text/javascript" src="js/view_player.js"></script>
     <script type="text/javascript" src="js/view_robot.js"></script>
     <script type="text/javascript" src="js/prepare.js"></script>
@@ -98,6 +100,7 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+        var dualViews = {};
         var views = [];
 
         // Load your opponent's board.
@@ -120,7 +123,6 @@
         var mainView = prepare({
           views: views,
           viewType: MainView,
-          opponentView: opponentView,
 
           document: document,
           aux: document.getElementById('aux'),
@@ -132,6 +134,9 @@
           score_canvas: document.getElementById('main-score-canvas'),
           resetButton: document.getElementById('main-faces-button')
         });
+
+        mainView.setOpponentView(opponentView);
+        opponentView.setOpponentView(mainView);
 
         respondToButtons({
           document: document,

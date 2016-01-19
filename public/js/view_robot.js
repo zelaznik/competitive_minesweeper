@@ -5,11 +5,11 @@
     View.call(this, options);
   };
 
-  RobotView.inherits(View, {
+  RobotView.inherits(CompetitiveView, {
     gameType: window.RobotGame,
 
     start: function(options) {
-      View.prototype.start.call(this, options);
+      CompetitiveView.prototype.start.call(this, options);
       var randomMoves = this.game.mineField.randomMoves;
       var i = 0;
       var view = this;
@@ -25,12 +25,12 @@
     },
 
     stop: function(options) {
-      View.prototype.stop.call(this, options);
+      CompetitiveView.prototype.stop.call(this, options);
       clearInterval(this._tick);
     },
 
     reset: function(newOptions) {
-      View.prototype.reset.call(this, newOptions);
+      CompetitiveView.prototype.reset.call(this, newOptions);
     }
   });
 
