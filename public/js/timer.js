@@ -26,6 +26,12 @@
       return this._dt;
     },
 
+    _start: function() {
+      this.t0 = Date.now();
+      delete this._timeF;
+      this.running = true;
+    },
+
     _stop: function() {
       this._timeF = Date.now();
       this.prev += this.dt();
@@ -40,21 +46,16 @@
     },
 
     start: function() {
-      console.log(timerId++ + " Starting Timer: " + this.tempName);
       this._reset();
-      this.t0 = Date.now();
-      delete this._timeF;
-      this.running = true;
+      this._start();
     },
 
 
     stop: function() {
-      console.log(timerId++ + " Stopping Timer: " + this.tempName);
       this._stop();
     },
 
     reset: function() {
-      console.log(timerId++ + " Resetting Timer: " + this.tempName);
       this._stop();
       this._reset();
     },
