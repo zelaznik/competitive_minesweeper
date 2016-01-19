@@ -58,7 +58,7 @@
       }, {});
 
       this.timer = new Timer(
-        $.extend(digitalOptions, {canvas: options.timer_canvas})
+        $.extend(digitalOptions, {tempName: this.constructor.name, canvas: options.timer_canvas})
       );
 
       this.score = new Score(
@@ -95,21 +95,24 @@
       ctx.fillRect(0, 0, View.WIDTH, View.HEIGHT);
     },
 
-    start: function(options) {
+    _start: function(options) {
       this.game.begun = true;
       this.timer.start();
-      this._drawTimer = this.drawTimer.bind(this);
-      setInterval(this._drawTimer, View.dt * 1000);
+      this._drawTimer = setInterval(
+        this.drawTimer.bind(this),
+        View.dt * 1000
+      );
     },
 
-    stop: function(options) {
+    _stop: function(options) {
       this.timer.stop();
       clearInterval(this._drawTimer);
       delete this._drawTimer;
     },
 
-    reset: function(newOptions) {
+    _reset: function(newOptions) {
       this.stop();
+      this.timer.reset();
       this.deleteSubViews();
       delete this.game;
       this.body.classList.remove('success');
@@ -119,6 +122,21 @@
       this.resetButton.classList.remove('frown');
       View.call(this, $.extend(this.options, newOptions));
       this.draw();
+    },
+
+    start: function(options) {
+      debug('Starting View: ' + this.constructor.name);
+      this._start(options);
+    },
+
+    stop: function(options) {
+      debug('Stopping View: ' + this.constructor.name);
+      this._stop(options);
+    },
+
+    reset: function(options) {
+      debug("Resetting View: " + this.constructor.name);
+      this._reset(options);
     },
 
     visualSweep: function() {

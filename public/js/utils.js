@@ -1,6 +1,11 @@
 (function() {
   'use strict';
 
+  var pk = 0;
+  window.debug = function(message) {
+    return pk++ + ' ' + message;
+  };
+
   window.shuffle = function(arr) {
     for (var i=0, n=arr.length; i<n; i++) {
       var j = Math.floor((n - i) * Math.random());

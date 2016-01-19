@@ -104,7 +104,7 @@
         var views = [];
 
         // Load your opponent's board.
-        var opponentView = prepare({
+        var opponentView = window.opponentView = prepare({
           views: views,
           viewType: RobotView,
 
@@ -120,7 +120,7 @@
         });
 
         // Load your own board.
-        var mainView = prepare({
+        var mainView = window.mainView = prepare({
           views: views,
           viewType: MainView,
 
@@ -138,9 +138,16 @@
         mainView.setOpponentView(opponentView);
         opponentView.setOpponentView(mainView);
 
+        // setInterval(function() {
+        //   console.log("MainView(elapsed): " + mainView.timer.elapsed());
+        //   console.log("OpponentView(elapsed): " + opponentView.timer.elapsed());
+        //   console.log("MainView: " + JSON.stringify(mainView.timer));
+        //   console.log("OpponentView: " + JSON.stringify(opponentView.timer));
+        // }, 500);
+
         respondToButtons({
           document: document,
-          views: views
+          views: [mainView]
         });
 
       });

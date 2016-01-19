@@ -10,6 +10,7 @@
     var b, r, c, m, i, pos, iMax;
 
     var cells = [];
+    var flags = [];
     var firstPos = options.firstPos;
     var firstIndex = '' + [firstPos.r, firstPos.c];
     this.forEach(function(val, pos) {
@@ -21,11 +22,13 @@
     for (m = 0; m < this.mineCt; m++) {
       i = Math.floor(Math.random() * cells.length);
       this.set(cells[i], true);
+      flags.push(cells[i]);
       cells = cells.slice(0,i).concat(cells.slice(i+1));
     }
 
     // Random moves for the computer robot.
     this.randomMoves = shuffle(cells);
+    this.randomFlags = shuffle(flags);
 
     // Pre-calculate the number of mines nearby.
     var nearby = this.nearby = {};
