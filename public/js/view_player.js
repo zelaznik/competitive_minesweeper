@@ -73,7 +73,9 @@
           view.highlightActive(e, {
             includeNeighbors: !!mouseDown.right
           });
-          resetButton.classList.add('open-mouth');
+          if (view.game.begun && !view.game.over) {
+            resetButton.classList.add('open-mouth');
+          }
         }
       });
 

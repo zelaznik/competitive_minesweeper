@@ -16,6 +16,7 @@
     this._counts = {undefined: this.cellCt};
     this.hiddenCt = this.cellCt;
     this.mineCt = options.mineCt;
+    this.begun = false;
     this.over = false;
   };
 

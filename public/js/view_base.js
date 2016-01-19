@@ -105,6 +105,7 @@
     },
 
     stop: function(options) {
+      this.game.over = true;
       this.timer.stop();
       clearInterval(this._drawTimer);
       delete this._drawTimer;
@@ -153,6 +154,7 @@
         if (result.won) {
           this.body.classList.add('success');
           this.resetButton.classList.add('sunglasses');
+
         } else if (result.mine) {
           this.body.classList.add('failure');
           this.resetButton.classList.add('frown');
