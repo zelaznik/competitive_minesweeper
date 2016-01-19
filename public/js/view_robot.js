@@ -24,16 +24,8 @@
           view.toggleFlag(randomFlags.pop());
 
         } else {
-          match = false;
-          for (i = 0, n = randomMoves.length; i<n; i++) {
-            pos = randomMoves[i];
-            if (view.game.get(pos) === undefined) {
-              match = true;
-              break;
-            }
-          }
-          if (!match) {
-            throw "Could not find square that hasn't already been revealed.";
+          while (!pos || view.game.get(pos) !== undefined) {
+            pos = randomMoves.pop();
           }
           view.reveal(pos);
         }
