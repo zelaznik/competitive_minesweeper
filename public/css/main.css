@@ -113,7 +113,7 @@ body.success > #cssmenu #bg-one {
   background-position: -36px 0px;
 }
 
-.faces:active {
+#main .faces:active {
   background-position: -36px 72px;
 }
 
