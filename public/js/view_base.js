@@ -160,12 +160,10 @@
       }
     },
 
-    onWin: function() {
-      // Do Nothing
+    onWin: function(options) {
     },
 
-    onLose: function() {
-      // Do Nothing
+    onLose: function(options) {
     },
 
     sweep: function(e) {

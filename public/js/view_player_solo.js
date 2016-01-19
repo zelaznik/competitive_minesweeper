@@ -8,11 +8,11 @@
     game view is triggered.
   */
 
-  window.DummyView = function DummyView(options) {
+  window.SolorPlayerView = function SolorPlayerView(options) {
     // This is a view solely for single player.
   };
 
-  DummyView.inherits(View, {
+  SolorPlayerView.inherits(View, mixin(PlayerView, {
     _triggerOpponent: function(methodName, options) {
       if (options && options.calledFromOpponent) {
         return;
@@ -47,6 +47,6 @@
       this._triggerOpponent('makeWin', options);
     }
 
-  });
+  }));
 
 })();

@@ -1,32 +1,11 @@
 (function() {
   'use strict';
 
-  window.CompetitivePlayerView = function CompetitivePlayerView(options) {
-    View.call(this, options);
-    this.opponentView = options.opponentView;
-    this.addListeners(options);
+  window.PlayerView = function PlayerView() {
+
   };
 
-  CompetitivePlayerView.inherits(View, mixin(CompetitiveView, {
-    gameType: window.MainGame,
-
-    handlerBase: function(e, callFwd) {
-      var pos = this.tiles.calculateCell(e);
-      View.prototype.handlerBase.call(this, pos, callFwd);
-    },
-
-    onWin: function() {
-      View.prototype.onWin.call(this);
-      this.body.classList.add('success');
-      this.resetButton.classList.add('sunglasses');
-    },
-
-    onLose: function() {
-      View.prototype.onLose.call(this);
-      this.body.classList.add('failure');
-      this.resetButton.classList.add('frown');
-    },
-
+  PlayerView.inherits(View, {
     addListeners: function(options) {
       // Don't need to run this twice in case a game is reset.
       if (this._listenersAdded) {
@@ -104,6 +83,11 @@
       this._listenersAdded = true;
     },
 
+    handlerBase: function(e, callFwd) {
+      var pos = this.tiles.calculateCell(e);
+      View.prototype.handlerBase.call(this, pos, callFwd);
+    },
+
     highlightActive: function(e, options) {
       if (this.game.over) {
         return;
@@ -126,6 +110,7 @@
         } //next row
       } // end neighbors clause
     }
-  }));
+
+  });
 
 })();

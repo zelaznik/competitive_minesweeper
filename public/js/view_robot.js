@@ -21,18 +21,26 @@
 
       this._tick = setInterval(function() {
         // Either flag a mine or reveal a new square.
-        totalMoves = randomFlags.length + randomMoves.length;
-        p = (totalMoves === 0) ? 0 : randomFlags.length / totalMoves;
-        if (Math.random() < (1 + p) / 2) {
-          view.toggleFlag(randomFlags.pop());
+        var successfulMove = false;
+        while (!successfulMove) {
+          totalMoves = randomFlags.length + randomMoves.length;
+          p = (totalMoves === 0) ? 0 : randomFlags.length / totalMoves;
+          if (Math.random() < (1 + p) / 2) {
+            if (view.game.get(pos) === undefined) {
+              view.toggleFlag(randomFlags.pop());
+              successfulMove = true;
+              break;
+            }
 
-        } else {
-          while (view.game.get(pos) !== undefined) {
-            pos = randomMoves.pop();
-          }
-          if (pos) {
+          } else {
+            while (view.game.get(pos) !== undefined) {
+              pos = randomMoves.pop();
+            }
             view.reveal(pos);
+            successfulMove = true;
+            break;
           }
+
         }
         view.draw();
 
@@ -40,12 +48,12 @@
     },
 
     stop: function(options) {
-      View.prototype.stop.call(this, options);
+      CompetitiveView.stop.call(this, options);
       clearInterval(this._tick);
     },
 
     reset: function(newOptions) {
-      View.prototype.reset.call(this, newOptions);
+      CompetitiveView.reset.call(this, newOptions);
       clearInterval(this._tick);
     }
   }));

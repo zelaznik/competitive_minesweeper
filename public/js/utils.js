@@ -38,7 +38,10 @@
     var r = weights.r || weights.red;
     var g = weights.r || weights.green;
     var b = weights.b || weights.blue;
+  };
 
+  window.superClass = function superClass(obj) {
+    return Object.getPrototypeOf(Object.getPrototypeOf(obj));
   };
 
   Function.prototype.inherits = function(Parent, options) {
