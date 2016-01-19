@@ -152,14 +152,20 @@
         this.draw();
         this.stop();
         if (result.won) {
-          this.body.classList.add('success');
-          this.resetButton.classList.add('sunglasses');
+          this.onWin();
 
         } else if (result.mine) {
-          this.body.classList.add('failure');
-          this.resetButton.classList.add('frown');
+          this.onLose();
         }
       }
+    },
+
+    onWin: function() {
+      // Do Nothing
+    },
+
+    onLose: function() {
+      // Do Nothing
     },
 
     sweep: function(e) {

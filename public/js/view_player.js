@@ -15,6 +15,18 @@
       CompetitiveView.prototype.handlerBase.call(this, pos, callFwd);
     },
 
+    onWin: function() {
+      CompetitiveView.prototype.onWin.call(this);
+      this.body.classList.add('success');
+      this.resetButton.classList.add('sunglasses');
+    },
+
+    onLose: function() {
+      CompetitiveView.prototype.onLose.call(this);
+      this.body.classList.add('failure');
+      this.resetButton.classList.add('frown');
+    },
+
     addListeners: function(options) {
       // Don't need to run this twice in case a game is reset.
       if (this._listenersAdded) {
