@@ -7,6 +7,8 @@
   };
 
   PlayerView.inherits(View, {
+    gameType: window.MainGame,
+
     onWin: function(options) {
       View.prototype.onWin.call(this, options);
       this.body.classList.add('success');

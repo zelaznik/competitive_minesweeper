@@ -168,6 +168,14 @@
       this.resetButton.classList.add('frown');
     },
 
+    makeWin: function(options) {
+      this.onWin(options);
+    },
+
+    makeLose: function(options) {
+      this.onLose(options);
+    },
+
     sweep: function(e) {
       var game = this.game;
       this.handlerBase(e, game.sweep.bind(game));

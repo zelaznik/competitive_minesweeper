@@ -11,9 +11,11 @@
   window.SoloPlayerView = function SoloPlayerView(options) {
     // This is a view solely for single player.
     PlayerView.call(this, options);
+    CompetitiveView.call(this, options);
   };
 
-  SoloPlayerView.inherits(PlayerView, mixin(CompetitiveView, {
-  }));
+  SoloPlayerView.inherits(PlayerView, {
+
+  });
 
 })();

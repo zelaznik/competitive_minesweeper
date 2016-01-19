@@ -74,8 +74,7 @@
      </ul>
     </div>
 
-    <div class="split-screen">
-
+    <div id="split-screen" class="split-screen">
       <div id="main" class="game border-convex">
         <div id="aux" class="aux border-concave">
           <canvas class='aux-item score-canvas' id="main-score-canvas"></canvas>
@@ -85,18 +84,16 @@
         <canvas class="board border-concave" id="main-board-canvas"></canvas>
       </div> <!-- End main -->
 
-      <div class="padding">
-      </div>
+      <div id="padding" class="padding"></div>
 
       <div id="opponent" class="game border-convex">
-        <div class="aux border-concave">
+        <div id="aux" class="aux border-concave">
           <canvas class='aux-item score-canvas' id="opponent-score-canvas"></canvas>
           <canvas class="aux-item faces" id="opponent-faces-button"></canvas>
           <canvas class='aux-item timer-canvas' id="opponent-timer-canvas"></canvas>
         </div>
         <canvas class="board border-concave" id="opponent-board-canvas"></canvas>
-      </div>
-      <!-- End main -->
+      </div> <!-- End main -->
 
     </div> <!-- End Split Screen -->
 
@@ -104,45 +101,55 @@
       document.addEventListener("DOMContentLoaded", function() {
         var competitiveMode = true;
         var mainView, opponentView;
+        var mainViewType;
         var views = [];
 
-        if (competitiveMode) {
-          // Load your opponent's board.
-          var opponentView = window.opponentView = prepare({
-            views: views,
-            viewType: RobotView,
-
-            document: document,
-            aux: document.getElementById('aux'),
-            menu: document.getElementById("cssmenu"),
-            body: document.getElementsByTagName('body')[0],
-            main: document.getElementById('opponent'),
-            canvas: document.getElementById('opponent-board-canvas'),
-            timer_canvas: document.getElementById('opponent-timer-canvas'),
-            score_canvas: document.getElementById('opponent-score-canvas'),
-            resetButton: document.getElementById('opponent-faces-button')
-          });
+        var $splitScreen = $('#split-screen');
+        // var mainBoard = mineSweeperBoard({category: 'main'});
+        function getBoard(category) {
+          return {
+            main: document.getElementById(category),
+            canvas: document.getElementById(category + '-board-canvas'),
+            resetButton: document.getElementById(category + '-faces-button'),
+            timer_canvas: document.getElementById(category + '-timer-canvas'),
+            score_canvas: document.getElementById(category + '-score-canvas')
+          };
         }
 
-        // Load your own board.
-        mainView = window.mainView = prepare({
+        var defaultViewParams = {
           views: views,
-          viewType: competitiveMode ? CompetitivePlayerView : SoloPlayerView,
-
           document: document,
           aux: document.getElementById('aux'),
-          main: document.getElementById('main'),
-          menu: document.getElementById("cssmenu"),
-          body: document.getElementsByTagName('body')[0],
-          canvas: document.getElementById('main-board-canvas'),
-          timer_canvas: document.getElementById('main-timer-canvas'),
-          score_canvas: document.getElementById('main-score-canvas'),
-          resetButton: document.getElementById('main-faces-button')
-        });
+          menu: document.getElementById('cssmenu'),
+          body: document.getElementsByTagName('body')[0]
+        };
+
+        if (competitiveMode) {
+          opponentView = window.opponentView = prepare(
+            merge(defaultViewParams, getBoard('opponent'), {
+              viewType: RobotView
+            })
+          );
+        }
+
+        if (competitiveMode) {
+          mainViewType = CompetitivePlayerView;
+        } else {
+          mainViewType = SoloPlayerView;
+        }
+        // Load your own board.
+        mainView = window.mainView = prepare(
+          merge(defaultViewParams, getBoard('main'), {
+            viewType: mainViewType
+          })
+        );
 
         if (competitiveMode) {
           mainView.setOpponentView(opponentView);
           opponentView.setOpponentView(mainView);
+          document.getElementById('opponent').classList.remove('hidden');
+        } else {
+          document.getElementById('opponent').classList.add('hidden');
         }
 
         respondToButtons({

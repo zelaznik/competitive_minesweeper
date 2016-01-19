@@ -117,6 +117,10 @@ body.success > #cssmenu #bg-one {
   background-position: -36px 72px;
 }
 
+#opponent.hidden {
+  display: None;
+}
+
 .score-canvas {
   float: left;
   margin-left: 10px;
