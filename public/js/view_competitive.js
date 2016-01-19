@@ -38,7 +38,7 @@
 
     reset: function(newOptions) {
       View.prototype.reset.call(this, newOptions);
-      this._triggerOpponent('reset', options);
+      this._triggerOpponent('reset', newOptions);
     }
 
   });

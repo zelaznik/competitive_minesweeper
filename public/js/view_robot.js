@@ -13,15 +13,14 @@
       var randomMoves = this.game.mineField.randomMoves;
       var i = 0;
       var view = this;
-      this._tick = function() {
+      this._tick = setInterval(function() {
         var pos = randomMoves[i++];
         while (view.game.get(pos) !== undefined) {
           pos = randomMoves[i++];
         }
         view.reveal(pos);
         view.draw();
-      };
-      setInterval(this._tick, 1500);
+      }, 1500);
     },
 
     stop: function(options) {
@@ -31,7 +30,9 @@
 
     reset: function(newOptions) {
       CompetitiveView.prototype.reset.call(this, newOptions);
+      clearInterval(this._tick);
     }
+
   });
 
 })();
