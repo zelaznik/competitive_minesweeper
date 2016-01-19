@@ -111,7 +111,6 @@
     },
 
     _reset: function(newOptions) {
-      this.stop();
       this.timer.reset();
       this.deleteSubViews();
       delete this.game;
