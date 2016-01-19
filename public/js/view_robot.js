@@ -44,7 +44,7 @@
         }
         view.draw();
 
-      }.bind(this), 50);
+      }.bind(this), 750);
     },
 
     stop: function(options) {
