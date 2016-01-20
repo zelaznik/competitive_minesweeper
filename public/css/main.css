@@ -117,7 +117,7 @@ body.success > #cssmenu #bg-one {
   background-position: -36px 72px;
 }
 
-#opponent.hidden {
+#opponent[game-type="solo"] {
   display: None;
 }
 

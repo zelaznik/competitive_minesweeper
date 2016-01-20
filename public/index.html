@@ -73,8 +73,8 @@
      </ul>
 
      <ul class="menu-group align-right">
-        <li class="game-type-choice" name="solo"><a href='#'><span>Single Player</span></a></li>
-        <li class="game-type-choice" name="robot"><a href='#'><span>Fight The Robot</span></a></li>
+        <li class="choice game-type-choice" name="solo"><a href='#'><span>Single Player</span></a></li>
+        <li class="choice game-type-choice active" name="robot"><a href='#'><span>Fight The Robot</span></a></li>
      </ul>
 
     </div>
@@ -153,14 +153,23 @@
           mainView.setOpponentView(opponentView);
           opponentView.setOpponentView(mainView);
           document.getElementById('opponent').classList.remove('hidden');
+
         } else {
           document.getElementById('opponent').classList.add('hidden');
         }
 
-        respondToButtons({
+        // Group the buttons that select the difficulty level
+        respondToNewDifficulty({
           views: views,
           document: document,
           choices: document.getElementsByClassName('level-choice')
+        });
+
+        respondToNewGameType({
+          views: views,
+          document: document,
+          opponentCanvas: document.getElementById('opponent'),
+          choices: document.getElementsByClassName('game-type-choice')
         });
 
       });

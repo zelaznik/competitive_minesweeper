@@ -1,27 +1,51 @@
 (function() {
   'use strict';
 
-  var respondToButtons = window.respondToButtons = function(options) {
+  var respondToNewDifficulty = window.respondToNewDifficulty = function(options) {
     var choices = options.choices;
     var views = options.views;
 
     var addListenerTo = function(choice) {
       var levelName = choice.getAttribute('name');
+
       choice.addEventListener('click', function(e) {
         for (var j=0; j<choices.length; j++) {
           choices[j].classList.remove('active');
         }
+
         e.currentTarget.classList.add('active');
         views.forEach(function(view) {
           view.reset({level: levelName});
         });
       });
     };
+    for (var i=0; i<choices.length; i++) {
+      addListenerTo(choices[i]);
+    }
+  };
+
+  var respondToNewGameType = window.respondToNewGameType = function(options) {
+    var opponentCanvas = options.opponentCanvas;
+    var choices = options.choices;
+    var views = options.views;
+
+    var addListenerTo = function(choice) {
+      var gameType = choice.getAttribute('name');
+      choice.addEventListener('click', function(e) {
+        for (var j=0; j<choices.length; j++) {
+          choices[j].classList.remove('active');
+        }
+        e.currentTarget.classList.add('active');
+        views.forEach(function(view) {
+          view.reset();
+        });
+        opponentCanvas.setAttribute('game-type', gameType);
+      });
+    };
 
     for (var i=0; i<choices.length; i++) {
       addListenerTo(choices[i]);
     }
-
   };
 
   var prepare = window.prepare = function prepare(options) {
