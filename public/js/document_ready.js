@@ -10,7 +10,10 @@ document.addEventListener("DOMContentLoaded", function() {
       canvas: document.getElementById(category + '-board-canvas'),
       resetButton: document.getElementById(category + '-faces-button'),
       timer_canvas: document.getElementById(category + '-timer-canvas'),
-      score_canvas: document.getElementById(category + '-score-canvas')
+      score_canvas: document.getElementById(category + '-score-canvas'),
+
+      minesStatusBar: document.getElementById(category + '-pct-mines-flagged'),
+      cellsStatusBar: document.getElementById(category + '-pct-cells-cleared'),
     };
   }
 

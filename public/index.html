@@ -68,25 +68,27 @@
     <div id="contents">
 
       <div id='cssmenu'>
-       <ul class="menu-group">
-          <li class="choice level-choice" name="beginner"><a href='#'><span>Beginner</span></a></li>
-          <li class="choice level-choice" name="intermediate"><a href='#'><span>Intermediate</span></a></li>
-          <li class="choice level-choice" name="expert"><a href='#'><span>Expert</span></a></li>
-          <li class="choice level-choice active" name="demo"><a href="#"><span>Demo</span></a></li>
-       </ul>
+         <ul class="menu-group">
+            <li class="choice level-choice" name="beginner"><a href='#'><span>Beginner</span></a></li>
+            <li class="choice level-choice" name="intermediate"><a href='#'><span>Intermediate</span></a></li>
+            <li class="choice level-choice" name="expert"><a href='#'><span>Expert</span></a></li>
+            <li class="choice level-choice active" name="demo"><a href="#"><span>Demo</span></a></li>
+         </ul>
 
-       <ul class="menu-group align-right">
-          <li class="choice game-type-choice" name="solo"><a href='#'><span>Single Player</span></a></li>
-          <li class="choice game-type-choice active" name="robot"><a href='#'><span>Fight The Robot</span></a></li>
-       </ul>
-
+         <ul class="menu-group align-right">
+            <li class="choice game-type-choice" name="solo"><a href='#'><span>Single Player</span></a></li>
+            <li class="choice game-type-choice active" name="robot"><a href='#'><span>Fight The Robot</span></a></li>
+         </ul>
       </div>
 
-      <div id="statistics">
-        <div class="meter blue"><span style="width: 25%"></span></div>
-      	<div class="meter orange"><span style="width: 33.3%"></span></div>
-      	<div class="meter red"><span style="width: 80%"></span></div>
-      	<div class="meter green"><span style="width: 50%"></span></div>
+      <div class="statistics statistics-main">
+        <div class="meter blue"><span id="main-pct-cells-cleared" style="width: 25%"></span></div>
+      	<div class="meter orange"><span id="main-pct-mines-flagged" style="width: 33.3%"></span></div>
+      </div>
+
+      <div class="statistics statistics-opponent">
+      	<div class="meter red"><span id="opponent-pct-cells-cleared" style="width: 80%"></span></div>
+      	<div class="meter green"><span id="opponent-pct-mines-flagged" style="width: 50%"></span></div>
       </div>
 
       <div id="split-screen" class="split-screen">

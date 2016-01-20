@@ -33,6 +33,15 @@
     /*****************************
               Properties
     *****************************/
+
+    percentCellsSwept: function() {
+      return 1 - this.count(undefined) / this.cellCt;
+    },
+
+    percentMinesFlagged: function() {
+      return this.count('flag') / this.mineCt;
+    },
+
     minesRemaining: function() {
       return this.mineCt - this.flagCt;
     },

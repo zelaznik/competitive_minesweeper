@@ -41,6 +41,9 @@
       this.timer_canvas = options.timer_canvas;
       this.score_canvas = options.score_canvas;
 
+      this.minesStatusBar = options.minesStatusBar;
+      this.cellsStatusBar = options.cellsStatusBar;
+
       this.canvas = options.canvas;
       this.score_ctx = this.score_canvas.getContext('2d');
       this.timer_ctx = this.timer_canvas.getContext('2d');
@@ -218,6 +221,12 @@
       this.drawScore();
       this.drawAllTiles();
       this.drawTimer();
+
+      var cellPct = this.game.percentCellsSwept();
+      var minePct = this.game.percentMinesFlagged();
+
+      this.minesStatusBar.style.width = '' + 100 * minePct + '%';
+      this.cellsStatusBar.style.width = '' + 100 * cellPct + '%';
     },
 
     drawScore: function() {
