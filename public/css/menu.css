@@ -29,6 +29,14 @@
   font-family: Capriola, Helvetica, sans-serif;
 }
 
+#cssmenu ul {
+  display: inline-block;
+}
+
+#cssmenu ul li {
+  float: right;
+}
+
 #cssmenu {
   min-width: 550px;
   width: auto;
