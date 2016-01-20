@@ -2,7 +2,7 @@
   'use strict';
 
   var respondToButtons = window.respondToButtons = function(options) {
-    var choices = document.getElementsByClassName('level-choice');
+    var choices = options.choices;
     var views = options.views;
 
     var addListenerTo = function(choice) {

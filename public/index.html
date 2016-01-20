@@ -20,13 +20,12 @@
 
     <!-- jQuery + menu bar -->
     <link rel="stylesheet" href="css/menu.css">
-    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
     <script src="js/prepare_menu.js"></script>
 
     <!-- Minesweeper styling and logic -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
-    <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/utils.js"></script>
     <script type="text/javascript" src="js/grid.js"></script>
     <script type="text/javascript" src="js/mineField.js"></script>
@@ -67,15 +66,15 @@
 
     <div id='cssmenu'>
      <ul class="menu-group">
-        <li class="level-choice" name="beginner"><a href='#'><span>Beginner</span></a></li>
-        <li class="level-choice" name="intermediate"><a href='#'><span>Intermediate</span></a></li>
-        <li class="level-choice" name="expert"><a href='#'><span>Expert</span></a></li>
-        <li class="level-choice active" name="demo"><a href="#"><span>Demo</span></a></li>
+        <li class="choice level-choice" name="beginner"><a href='#'><span>Beginner</span></a></li>
+        <li class="choice level-choice" name="intermediate"><a href='#'><span>Intermediate</span></a></li>
+        <li class="choice level-choice" name="expert"><a href='#'><span>Expert</span></a></li>
+        <li class="choice level-choice active" name="demo"><a href="#"><span>Demo</span></a></li>
      </ul>
 
      <ul class="menu-group align-right">
-        <li class="level-choice" name="solo"><a href='#'><span>Single Player</span></a></li>
-        <li class="level-choice" name="robot"><a href='#'><span>Fight The Robot</span></a></li>
+        <li class="game-type-choice" name="solo"><a href='#'><span>Single Player</span></a></li>
+        <li class="game-type-choice" name="robot"><a href='#'><span>Fight The Robot</span></a></li>
      </ul>
 
     </div>
@@ -159,8 +158,9 @@
         }
 
         respondToButtons({
+          views: views,
           document: document,
-          views: views
+          choices: document.getElementsByClassName('level-choice')
         });
 
       });
