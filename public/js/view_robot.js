@@ -3,12 +3,25 @@
 
   window.RobotView = function RobotView(options) {
     View.call(this, options);
+    this.setActive(true);
   };
 
   RobotView.inherits(View, mixin(CompetitiveView, {
     gameType: window.RobotGame,
 
+    setActive: function(value) {
+      this._active = value;
+    },
+
+    active: function() {
+      return !!this._active;
+    },
+
     start: function(options) {
+      if (!this.active()) {
+        return;
+      }
+
       var randomMoves, randomFlags, debugGetValues;
       var pos, view, match, x, i, n, ct, p, totalMoves;
 

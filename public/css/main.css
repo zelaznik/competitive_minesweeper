@@ -67,6 +67,12 @@ body.success > #cssmenu #bg-one {
   text-align: center;
 }
 
+.game-container {
+  display: inline;
+  text-align: center;
+  width: 50%;
+}
+
 .game {
   width: 480px; /* Javascript will override this value */
   padding: 10px;
@@ -76,6 +82,12 @@ body.success > #cssmenu #bg-one {
   text-align: center;
   background-color: #c4c4c4;
   display: inline-block;
+  position: relative;
+}
+
+
+#opponent[game-type="solo"] {
+  display: None;
 }
 
 .board {
@@ -115,10 +127,6 @@ body.success > #cssmenu #bg-one {
 
 #main .faces:active {
   background-position: -36px 72px;
-}
-
-#opponent[game-type="solo"] {
-  display: None;
 }
 
 .score-canvas {
