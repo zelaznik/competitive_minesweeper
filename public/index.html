@@ -65,52 +65,56 @@
        }(document, 'script', 'facebook-jssdk'));
     </script>
 
-    <div id='cssmenu'>
-     <ul class="menu-group">
-        <li class="choice level-choice" name="beginner"><a href='#'><span>Beginner</span></a></li>
-        <li class="choice level-choice" name="intermediate"><a href='#'><span>Intermediate</span></a></li>
-        <li class="choice level-choice" name="expert"><a href='#'><span>Expert</span></a></li>
-        <li class="choice level-choice active" name="demo"><a href="#"><span>Demo</span></a></li>
-     </ul>
+    <div id="contents">
 
-     <ul class="menu-group align-right">
-        <li class="choice game-type-choice" name="solo"><a href='#'><span>Single Player</span></a></li>
-        <li class="choice game-type-choice active" name="robot"><a href='#'><span>Fight The Robot</span></a></li>
-     </ul>
+      <div id='cssmenu'>
+       <ul class="menu-group">
+          <li class="choice level-choice" name="beginner"><a href='#'><span>Beginner</span></a></li>
+          <li class="choice level-choice" name="intermediate"><a href='#'><span>Intermediate</span></a></li>
+          <li class="choice level-choice" name="expert"><a href='#'><span>Expert</span></a></li>
+          <li class="choice level-choice active" name="demo"><a href="#"><span>Demo</span></a></li>
+       </ul>
 
-    </div>
+       <ul class="menu-group align-right">
+          <li class="choice game-type-choice" name="solo"><a href='#'><span>Single Player</span></a></li>
+          <li class="choice game-type-choice active" name="robot"><a href='#'><span>Fight The Robot</span></a></li>
+       </ul>
 
-    <div id="statistics">
-      <div class="meter blue"><span style="width: 25%"></span></div>
-    	<div class="meter orange"><span style="width: 33.3%"></span></div>
-    	<div class="meter red"><span style="width: 80%"></span></div>
-    	<div class="meter green"><span style="width: 50%"></span></div>
-    </div>
-
-    <div id="split-screen" class="split-screen">
-
-      <div class="game-container">
-        <div id="main" class="game border-convex">
-          <div id="aux" class="aux border-concave">
-            <canvas class='aux-item score-canvas' id="main-score-canvas"></canvas>
-            <canvas class="aux-item faces" id="main-faces-button"></canvas>
-            <canvas class='aux-item timer-canvas' id="main-timer-canvas"></canvas>
-          </div>
-          <canvas class="board border-concave" id="main-board-canvas"></canvas>
-        </div>
       </div>
-      <!-- End main -->
 
-      <div class="game-container">
-        <div id="opponent" class="game border-convex">
-          <div id="aux" class="aux border-concave">
-            <canvas class='aux-item score-canvas' id="opponent-score-canvas"></canvas>
-            <canvas class="aux-item faces" id="opponent-faces-button"></canvas>
-            <canvas class='aux-item timer-canvas' id="opponent-timer-canvas"></canvas>
+      <div id="statistics">
+        <div class="meter blue"><span style="width: 25%"></span></div>
+      	<div class="meter orange"><span style="width: 33.3%"></span></div>
+      	<div class="meter red"><span style="width: 80%"></span></div>
+      	<div class="meter green"><span style="width: 50%"></span></div>
+      </div>
+
+      <div id="split-screen" class="split-screen">
+
+        <div class="game-container">
+          <div id="main" class="game border-convex">
+            <div id="aux" class="aux border-concave">
+              <canvas class='aux-item score-canvas' id="main-score-canvas"></canvas>
+              <canvas class="aux-item faces" id="main-faces-button"></canvas>
+              <canvas class='aux-item timer-canvas' id="main-timer-canvas"></canvas>
+            </div>
+            <canvas class="board border-concave" id="main-board-canvas"></canvas>
           </div>
-          <canvas class="board border-concave" id="opponent-board-canvas"></canvas>
-        </div><!-- End Opponent -->
-      </div> <!-- End Split Screen -->
+        </div>
+        <!-- End main -->
+
+        <div class="game-container">
+          <div id="opponent" class="game border-convex">
+            <div id="aux" class="aux border-concave">
+              <canvas class='aux-item score-canvas' id="opponent-score-canvas"></canvas>
+              <canvas class="aux-item faces" id="opponent-faces-button"></canvas>
+              <canvas class='aux-item timer-canvas' id="opponent-timer-canvas"></canvas>
+            </div>
+            <canvas class="board border-concave" id="opponent-board-canvas"></canvas>
+          </div><!-- End Opponent -->
+        </div> <!-- End Split Screen -->
+
+      </div>
 
     <script type="text/javascript" src="js/document_ready.js"></script>
   </body>

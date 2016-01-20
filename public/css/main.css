@@ -70,6 +70,7 @@ body.success > #cssmenu #bg-one {
 .game-container {
   display: inline;
   text-align: center;
+  margin: 0px 15px;
   width: 50%;
 }
 
@@ -84,7 +85,6 @@ body.success > #cssmenu #bg-one {
   display: inline-block;
   position: relative;
 }
-
 
 #opponent[game-type="solo"] {
   display: None;
