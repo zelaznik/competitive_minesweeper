@@ -103,7 +103,6 @@
   bottom: 4px;
   height: 55px;
   z-index: 4;
-  /*background: url('../images/bg.png');*/
 }
 
 #cssmenu ul {
@@ -135,7 +134,6 @@
 
 #cssmenu ul li:hover,
 #cssmenu ul li.active {
-  /* { top: #0f71ba, bottom: #0f71ba} */
   background: #0f71ba;
   background: -moz-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3fa4f0), color-stop(100%, #0f71ba));
@@ -147,6 +145,5 @@
 
 #cssmenu ul li a:hover,
 #cssmenu ul li.active > a {
-  /*background: url('../images/bg.png');*/
   color: #ffffff;
 }

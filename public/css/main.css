@@ -61,17 +61,27 @@ body.success > #cssmenu #bg-one {
 }
 
 .split-screen {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
 }
 
 .game-container {
-  display: inline;
-  text-align: center;
-  margin: 0px 15px;
-  width: 50%;
+  display: inline-block;
+  margin: 0 auto;
+
+  -webkit-touch-callout: None;
+  -webkit-user-select: None;
+  -khtml-user-select: None;
+  -moz-user-select: None;
+  -ms-user-select: None;
+  user-select: None;
+}
+
+.game-container-left {
+  margin-right: 20px;
+}
+
+.game-container-right {
+  margin-left: 20px;
 }
 
 .game {
