@@ -6,6 +6,7 @@
   src: local('Capriola Regular'), local('Capriola-Regular'), url(http://fonts.gstatic.com/s/capriola/v4/MCXNg459ZtebBVYIDxweyhkAz4rYn47Zy2rvigWQf6w.woff2) format('woff2');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
+
 /* latin */
 @font-face {
   font-family: 'Capriola';
@@ -44,18 +45,18 @@
   padding-bottom: 4px;
 }
 
-#cssmenu.align-right {
+#cssmenu .align-right {
   float: right;
 }
 
-#cssmenu.align-right ul li {
+#cssmenu .align-right ul li {
   float: right;
   margin-right: 0;
   margin-left: 4px;
 }
 
-#cssmenu.align-right ul li:first-child,
-#cssmenu.align-right ul li:first-child > a {
+#cssmenu .align-right ul li:first-child,
+#cssmenu .align-right ul li:first-child > a {
   border-bottom-right-radius: 3px;
 }
 
@@ -78,7 +79,6 @@
 #cssmenu #bg-two {
   height: 59px;
   z-index: 2;
-  /*background: url('../images/bg.png');*/
 }
 
 #cssmenu #bg-three {
