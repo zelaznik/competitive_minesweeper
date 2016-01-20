@@ -33,6 +33,25 @@
     /*****************************
               Properties
     *****************************/
+
+    setActive: function(value) {
+      this._active = value;
+    },
+
+    isActive: function() {
+      return !!this._active;
+    },
+
+    percentCellsSwept: function() {
+      var invalidCt = this.count(undefined) +
+      this.count('bomb') + this.count('exploded');
+      return 1 - invalidCt / this.cellCt;
+    },
+
+    percentMinesFlagged: function() {
+      return this.count('flag') / this.mineCt;
+    },
+
     minesRemaining: function() {
       return this.mineCt - this.flagCt;
     },

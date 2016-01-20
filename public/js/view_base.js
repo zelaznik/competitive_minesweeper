@@ -41,6 +41,9 @@
       this.timer_canvas = options.timer_canvas;
       this.score_canvas = options.score_canvas;
 
+      this.minesStatusBar = options.minesStatusBar;
+      this.cellsStatusBar = options.cellsStatusBar;
+
       this.canvas = options.canvas;
       this.score_ctx = this.score_canvas.getContext('2d');
       this.timer_ctx = this.timer_canvas.getContext('2d');
@@ -96,12 +99,18 @@
     },
 
     start: function(options) {
+      if (!!this.game.isActive()) {
+        return;
+      }
+
       this.game.begun = true;
       this.timer.start();
       this._drawTimer = setInterval(
         this.drawTimer.bind(this),
         View.dt * 1000
       );
+      this.minesStatusBar.classList.add('active');
+      this.cellsStatusBar.classList.add('active');
     },
 
     stop: function(options) {
@@ -109,6 +118,8 @@
       this.timer.stop();
       clearInterval(this._drawTimer);
       delete this._drawTimer;
+      this.minesStatusBar.classList.remove('active');
+      this.cellsStatusBar.classList.remove('active');
     },
 
     reset: function(newOptions) {
@@ -122,6 +133,8 @@
       this.resetButton.classList.remove('frown');
       View.call(this, $.extend(this.options, newOptions));
       this.draw();
+      this.minesStatusBar.classList.remove('active');
+      this.cellsStatusBar.classList.remove('active');
     },
 
     visualSweep: function() {
@@ -218,6 +231,12 @@
       this.drawScore();
       this.drawAllTiles();
       this.drawTimer();
+
+      var cellPct = this.game.percentCellsSwept();
+      var minePct = this.game.percentMinesFlagged();
+
+      this.minesStatusBar.style.width = '' + 100 * minePct + '%';
+      this.cellsStatusBar.style.width = '' + 100 * cellPct + '%';
     },
 
     drawScore: function() {

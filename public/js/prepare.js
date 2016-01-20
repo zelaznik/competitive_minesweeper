@@ -25,6 +25,7 @@
   };
 
   var respondToNewGameType = window.respondToNewGameType = function(options) {
+    var opponentProgressBar = options.opponentProgressBar;
     var opponentCanvas = options.opponentCanvas;
     var opponentView = options.opponentView;
     var choices = options.choices;
@@ -42,6 +43,7 @@
         });
         opponentView.setActive((gameType !== 'solo'));
         opponentCanvas.setAttribute('game-type', gameType);
+        opponentProgressBar.setAttribute('game-type', gameType);
       });
     };
 

@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="css/menu.css">
 	  <link rel='stylesheet' href='css/statusbar.css'>
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/statusbar.js"></script>
     <script src="js/prepare_menu.js"></script>
 
     <!-- Minesweeper styling and logic -->
@@ -81,7 +82,6 @@
           <li class="choice game-type-choice" name="solo"><a href='#'><span>Single Player</span></a></li>
           <li class="choice game-type-choice active" name="robot"><a href='#'><span>Fight The Robot</span></a></li>
        </ul>
-
       </div>
 
       <div id="split-screen" class="split-screen">
@@ -109,6 +109,22 @@
           </div><!-- End Opponent -->
         </div> <!-- End Split Screen -->
 
+      </div>
+
+      <div class="statistics">
+        <div class="statistics-main">
+          <div class="meter blue">
+            <span id="main-pct-cells-cleared" style="width: 0%"></span>
+          </div>
+          <div class="meter orange">
+            <span id="main-pct-mines-flagged" style="width: 0%"></span>
+          </div>
+        </div>
+
+        <div class="statistics-opponent">
+          <div class="meter red"><span id="opponent-pct-cells-cleared" style="width: 0%"></span></div>
+          <div class="meter green"><span id="opponent-pct-mines-flagged" style="width: 0%"></span></div>
+        </div>
       </div>
 
     <script type="text/javascript" src="js/document_ready.js"></script>
