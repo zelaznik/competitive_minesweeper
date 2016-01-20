@@ -65,7 +65,8 @@ document.addEventListener("DOMContentLoaded", function() {
     views: views,
     document: document,
     opponentCanvas: document.getElementById('opponent'),
-    choices: document.getElementsByClassName('game-type-choice')
+    choices: document.getElementsByClassName('game-type-choice'),
+    opponentProgressBar: document.getElementsByClassName('statistics-opponent')[0]
   });
 
 });

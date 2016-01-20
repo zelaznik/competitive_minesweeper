@@ -99,12 +99,18 @@
     },
 
     start: function(options) {
+      if (!!this.game.isActive()) {
+        return;
+      }
+
       this.game.begun = true;
       this.timer.start();
       this._drawTimer = setInterval(
         this.drawTimer.bind(this),
         View.dt * 1000
       );
+      this.minesStatusBar.classList.add('active');
+      this.cellsStatusBar.classList.add('active');
     },
 
     stop: function(options) {
@@ -112,6 +118,8 @@
       this.timer.stop();
       clearInterval(this._drawTimer);
       delete this._drawTimer;
+      this.minesStatusBar.classList.remove('active');
+      this.cellsStatusBar.classList.remove('active');
     },
 
     reset: function(newOptions) {
@@ -125,6 +133,8 @@
       this.resetButton.classList.remove('frown');
       View.call(this, $.extend(this.options, newOptions));
       this.draw();
+      this.minesStatusBar.classList.remove('active');
+      this.cellsStatusBar.classList.remove('active');
     },
 
     visualSweep: function() {

@@ -25,6 +25,7 @@
   };
 
   var respondToNewGameType = window.respondToNewGameType = function(options) {
+    var opponentProgressBar = options.opponentProgressBar;
     var opponentCanvas = options.opponentCanvas;
     var choices = options.choices;
     var views = options.views;
@@ -40,6 +41,7 @@
           view.reset();
         });
         opponentCanvas.setAttribute('game-type', gameType);
+        opponentProgressBar.setAttribute('game-type', gameType);
       });
     };
 

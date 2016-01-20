@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="css/menu.css">
 	  <link rel='stylesheet' href='css/statusbar.css'>
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/statusbar.js"></script>
     <script src="js/prepare_menu.js"></script>
 
     <!-- Minesweeper styling and logic -->
@@ -81,16 +82,6 @@
          </ul>
       </div>
 
-      <div class="statistics statistics-main">
-        <div class="meter blue"><span id="main-pct-cells-cleared" style="width: 25%"></span></div>
-      	<div class="meter orange"><span id="main-pct-mines-flagged" style="width: 33.3%"></span></div>
-      </div>
-
-      <div class="statistics statistics-opponent">
-      	<div class="meter red"><span id="opponent-pct-cells-cleared" style="width: 80%"></span></div>
-      	<div class="meter green"><span id="opponent-pct-mines-flagged" style="width: 50%"></span></div>
-      </div>
-
       <div id="split-screen" class="split-screen">
 
         <div class="game-container game-container-left">
@@ -116,6 +107,22 @@
           </div><!-- End Opponent -->
         </div> <!-- End Split Screen -->
 
+      </div>
+
+      <div class="statistics">
+        <div class="statistics-main">
+          <div class="meter blue">
+            <span id="main-pct-cells-cleared" style="width: 0%"></span>
+          </div>
+          <div class="meter orange">
+            <span id="main-pct-mines-flagged" style="width: 0%"></span>
+          </div>
+        </div>
+
+        <div class="statistics-opponent">
+          <div class="meter red"><span id="opponent-pct-cells-cleared" style="width: 0%"></span></div>
+          <div class="meter green"><span id="opponent-pct-mines-flagged" style="width: 0%"></span></div>
+        </div>
       </div>
 
     <script type="text/javascript" src="js/document_ready.js"></script>
