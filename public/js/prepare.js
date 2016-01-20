@@ -26,6 +26,7 @@
 
   var respondToNewGameType = window.respondToNewGameType = function(options) {
     var opponentCanvas = options.opponentCanvas;
+    var opponentView = options.opponentView;
     var choices = options.choices;
     var views = options.views;
 
@@ -39,6 +40,7 @@
         views.forEach(function(view) {
           view.reset();
         });
+        opponentView.setActive((gameType !== 'solo'));
         opponentCanvas.setAttribute('game-type', gameType);
       });
     };

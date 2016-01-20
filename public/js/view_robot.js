@@ -57,7 +57,7 @@
         }
         view.draw();
 
-      }.bind(this), 1000);
+      }.bind(this), 750);
     },
 
     stop: function(options) {

@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
   respondToNewGameType({
     views: views,
     document: document,
+    opponentView: opponentView,
     opponentCanvas: document.getElementById('opponent'),
     choices: document.getElementsByClassName('game-type-choice')
   });
