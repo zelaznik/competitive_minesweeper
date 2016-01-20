@@ -24,14 +24,14 @@ body.failure {
   transition: background-image 0.5s ease;
 }
 
-body.failure > #cssmenu {
+body.failure #cssmenu {
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
   transition: all 0.05s;
 }
 
-body.success > #cssmenu ul li:hover,
-body.success > #cssmenu ul li.active {
+body.success #cssmenu ul li:hover,
+body.success #cssmenu ul li.active {
   background: -moz-linear-gradient(top, #00be00 0%, #005c00 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #00be00), color-stop(100%, #005c00));
   background: -webkit-linear-gradient(top, #00be00 0%, #005c00 100%);
@@ -40,7 +40,7 @@ body.success > #cssmenu ul li.active {
   background: linear-gradient(to bottom, #00be00 0%, #005c00 100%);
 }
 
-body.success > #cssmenu #bg-one {
+body.success #cssmenu #bg-one {
   background: #005c00;
 }
 
