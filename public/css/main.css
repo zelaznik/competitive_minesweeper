@@ -66,7 +66,7 @@ body.success > #cssmenu #bg-one {
 
 .game-container {
   display: inline-block;
-  margin: 0 auto;
+  margin: 0 20px;
 
   -webkit-touch-callout: None;
   -webkit-user-select: None;
@@ -74,14 +74,6 @@ body.success > #cssmenu #bg-one {
   -moz-user-select: None;
   -ms-user-select: None;
   user-select: None;
-}
-
-.game-container-left {
-  margin-right: 20px;
-}
-
-.game-container-right {
-  margin-left: 20px;
 }
 
 .game {
