@@ -1,7 +1,8 @@
 # Competitive Minesweeper Online
 
 <a href="http://competitive-minesweeper.herokuapp.com" target="_blank">
-<img src="https://github.com/zelaznik/minesweeper_js/blob/master/_readme/preview.png" alt="screenshot of expert player-vs-compter game in progress with link to live page"></a>
+<img src="https://github.com/zelaznik/minesweeper_js/blob/master/_readme/preview.png" height="375" width="600" 
+alt="screenshot of expert player-vs-compter game in progress with link to live page"></a>
 
 ## Overview
 - Clone of the classic Windows logic game, with the added ability to play against a computer.
