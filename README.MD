@@ -9,7 +9,6 @@ alt="screenshot of expert player-vs-compter game in progress with link to live p
 - A human player sees their board on the left and their oppponent's on the right.
 - A player wins when: a) they clear ther own board first, or b) their opponent clicks on a mine.
 - The display of each player's game is a pixel perfect clone of the classic Windows version.
-
 - The underlying code is in HTML, CSS, and Javascript.
 - Original idea from <a href="https://www.github.com/aegatlin" target="_blank">Austin Gatlin</a>'s "Minesweeper League" ( <a href="http://www.minesweeperleague.com" target="_blank">live</a> , <a href="https://www.github.com/aegatlin/minesweeper-league" target="_blank">github</a> ).
 
