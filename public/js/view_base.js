@@ -99,7 +99,7 @@
     },
 
     start: function(options) {
-      if (!!this.game.isActive()) {
+      if (!!this.game.isActive() || this.lockCt) {
         return;
       }
 
@@ -140,7 +140,8 @@
 
       this.$minesStatusBar.removeClass('active');
       this.$cellsStatusBar.removeClass('active');
-      this.updateStatusBars();
+
+      this.resetStatusBars();
     },
 
     visualSweep: function() {
@@ -244,18 +245,21 @@
       this.drawTimer();
     },
 
-    updateStatusBars: function() {
-      var cellDt, mineDt, cellPct, minePct;
-      cellPct = Math.min(1, this.game.percentCellsSwept());
-      minePct = Math.min(1, this.game.percentMinesFlagged());
+    resetStatusBars: function() {
+      this.$cellsStatusBar.animate({width: formatPct(0)}, 300);
+      this.$minesStatusBar.animate({width: formatPct(0)}, 300);
+    },
+
+    updateStatusBars: function(millisec) {
+      var cellPct = Math.min(1, this.game.percentCellsSwept());
+      var minePct = Math.min(1, this.game.percentMinesFlagged());
 
       if (cellPct !== this._oldCellPct) {
-        this.$cellsStatusBar.css({width: formatPct(cellPct)});
+        updatePct(this.$cellsStatusBar, cellPct, 300);
         this._oldCellPct = cellPct;
       }
-
       if (minePct !== this._oldMinePct) {
-        this.$minesStatusBar.css({width: formatPct(minePct)});
+        updatePct(this.$minesStatusBar, minePct, 300);
         this._oldMinePct = minePct;
       }
     },

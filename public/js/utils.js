@@ -85,4 +85,18 @@
     return output;
   };
 
+  window.parseStyle = function parseStyle(asString) {
+    var obj = {};
+    asString.split(';').forEach(function(item) {
+      var pair = item.split(':');
+      var key = pair[0];
+      var value = pair[1];
+      if (key.length > 0) {
+        obj[key] = value;
+      }
+    });
+
+    return obj;
+  };
+
 })();
