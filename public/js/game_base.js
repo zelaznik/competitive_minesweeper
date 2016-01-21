@@ -66,10 +66,11 @@
     *****************************/
 
     set: function(pos, val) {
+      var prevVal = this.get(pos);
       Grid.prototype.set.call(this, pos, val);
-      var prev = this._counts[val];
-      this._counts[val] = (prev || 0) + 1;
-      this._counts[undefined] -= 1;
+      var prevCount = this._counts[val];
+      this._counts[val] = (prevCount || 0) + 1;
+      this._counts[prevVal] -= 1;
     },
 
     del: function(pos) {

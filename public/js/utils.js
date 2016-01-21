@@ -56,6 +56,10 @@
     }
   };
 
+  window.formatPct = function formatPct(value) {
+    return Math.round(100 * (value || 0)) + '%';
+  };
+
   window.merge = function merge() {
     var output = {};
     for (var i in arguments) {

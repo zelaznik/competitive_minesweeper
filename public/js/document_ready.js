@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", function() {
       timer_canvas: document.getElementById(category + '-timer-canvas'),
       score_canvas: document.getElementById(category + '-score-canvas'),
 
-      minesStatusBar: document.getElementById(category + '-pct-mines-flagged'),
-      cellsStatusBar: document.getElementById(category + '-pct-cells-cleared'),
+      $minesStatusBar: $('#' + category + '-pct-mines-flagged'),
+      $cellsStatusBar: $('#' + category + '-pct-cells-cleared'),
     };
   }
 
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
   if (competitiveMode) {
     mainViewType = CompetitivePlayerView;
   } else {
-    mainViewType = SoloPlayerView;
+    mainViewType = PlayerView;
   }
   // Load your own board.
   mainView = window.mainView = prepare(
