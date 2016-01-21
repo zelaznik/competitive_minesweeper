@@ -6,10 +6,15 @@
 [preview]: https://github.com/zelaznik/minesweeper_js/blob/master/_readme/preview.png
 ![screenshot of expert game in progress][preview]
 
+[gatlin]: https://www.github.com/aegatlin
+[ms_league_live]: http://www.minesweeperleague.com
+[ms_league_github]: https://github.com/aegatlin/minesweeper-league
+
 ## Overview
 - Clone of the classic Windows logic game.  Can be played either solo, or against a computer.
 - The solo game is a pixel perfect clone of the Windows implementation.
 - The underlying code is in HTML, CSS, and Javascript.
+- Original idea from [Austin Gatlin][gatlin] and his project, "Minesweeper League" ( [live][ms_league_live],  [github][ms_league_github] ).
 
 ## Rules of Competitive Minesweeper
 - The player and the computer get two separate boards.
