@@ -14,7 +14,7 @@
 - Clone of the classic Windows logic game.  Can be played either solo, or against a computer.
 - The solo game is a pixel perfect clone of the Windows implementation.
 - The underlying code is in HTML, CSS, and Javascript.
-- Original idea from [Austin Gatlin][gatlin] and his project, "Minesweeper League" ( [live][ms_league_live],  [github][ms_league_github] ).
+- Original idea from [Austin Gatlin][gatlin]'s "Minesweeper League" ( [live][ms_league_live],  [github][ms_league_github] ).
 
 ## Rules of Competitive Minesweeper
 - The player and the computer get two separate boards.
