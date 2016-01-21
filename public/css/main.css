@@ -98,6 +98,17 @@ body.success #cssmenu #bg-one {
   position: relative;
 }
 
+#statistics p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  font-family: Capriola, Helvetica, sans-serif;
+}
+
 #statistics-main, #statistics-opponent {
   background: #0f71ba;
   background: -moz-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);

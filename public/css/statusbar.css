@@ -26,9 +26,21 @@
   position: relative;
   padding: 10px;
   height: 25px;
+  z-index: 10;
 }
 
 .meter > span {
+  display: inline;
+  position: absolute;
+  white-space: nowrap;
+  font-family: Capriola, Helvetica, sans-serif;
+  color: #eeeeee;
+  font-size: 15px;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+.meter > .statusbar {
   display: block;
   height: 100%;
 
@@ -58,13 +70,13 @@
   overflow: hidden;
 }
 
-body:not(.success):not(.failure) .meter > span:after,
-body:not(.success):not(.failure) .animate > span > span {
+body:not(.success):not(.failure) .meter > .statusbar:after,
+body:not(.success):not(.failure) .animate > .statusbar > .statusbar {
   -webkit-animation: move 2s linear infinite;
 }
 
-body .meter > span:after,
-body .animate > span > span {
+body .meter > .statusbar:after,
+body .animate > .statusbar > .statusbar {
   content: "";
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
@@ -119,35 +131,35 @@ body .animate > span > span {
     }
 }
 
-.blue > span {
+.blue > .statusbar {
   background-color: #1A41C4;
   background-image: -moz-linear-gradient(top, #1A41C4, #6E8FFF);
   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #1A41C4),color-stop(1, #6E8FFF));
   background-image: -webkit-linear-gradient(#1A41C4, #6E8FFF);
 }
 
-.orange > span {
+.orange > .statusbar {
   background-color: #f1a165;
   background-image: -moz-linear-gradient(top, #f1a165, #f36d0a);
   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f1a165),color-stop(1, #f36d0a));
   background-image: -webkit-linear-gradient(#f1a165, #f36d0a);
 }
 
-.red > span {
+.red > .statusbar {
   background-color: #f0a3a3;
   background-image: -moz-linear-gradient(top, #f0a3a3, #00CCCC);
   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f0a3a3),color-stop(1, #f42323));
   background-image: -webkit-linear-gradient(#f0a3a3, #f42323);
 }
 
-.green > span {
+.green > .statusbar {
   background-color: #007777;
   background-image: -moz-linear-gradient(top, #007777, #00CCCC);
   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #007777),color-stop(1, #00CCCC));
   background-image: -webkit-linear-gradient(#007777, #00CCCC);
 }
 
-.nostripes > span > span, .nostripes > span:after {
+.nostripes > .statusbar > .statusbar, .nostripes > .statusbar:after {
   -webkit-animation: none;
   background-image: none;
 }
