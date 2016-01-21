@@ -9,6 +9,21 @@
   RobotView.inherits(View, mixin(CompetitiveView, {
     gameType: window.RobotGame,
 
+    addListeners: function(options) {
+      // Don't need to run this twice in case a game is reset.
+      if (this._listenersAdded) {
+        return;
+      }
+
+      var view = this;
+      var on = view.canvas.addEventListener.bind(view.canvas);
+      on('contextmenu', function(e) {
+        e.preventDefault();
+      });
+
+      this._listenersAdded = true;
+    },
+
     setActive: function(value) {
       this._active = value;
     },
