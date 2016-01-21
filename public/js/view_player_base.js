@@ -3,7 +3,6 @@
 
   window.PlayerView = function PlayerView(options) {
     View.call(this, options);
-    this.addListeners(options);
   };
 
   PlayerView.inherits(View, {

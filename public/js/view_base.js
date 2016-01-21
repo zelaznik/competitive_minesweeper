@@ -15,6 +15,7 @@
 
     this.ctx = this.canvas.getContext('2d');
     this.renderInitialView(options);
+    this.addListeners(options);
   };
 
   View.zoom = {
@@ -31,6 +32,10 @@
 
   View.prototype = ({
     gameType: window.Game,
+
+    addListeners: function(options) {
+      // Do nothing.  This method is a placeholder to allow overriding in base classe
+    },
 
     storeSettings: function(options) {
       this.aux = options.aux;
