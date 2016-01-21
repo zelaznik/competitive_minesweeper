@@ -43,7 +43,7 @@
     },
 
     percentCellsSwept: function() {
-      var invalidCt = this.count(undefined) +
+      var invalidCt = this.count(undefined) + this.count('?') +
       this.count('bomb') + this.count('exploded');
       return 1 - invalidCt / this.cellCt;
     },

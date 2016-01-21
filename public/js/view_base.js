@@ -250,8 +250,7 @@
       minePct = Math.min(1, this.game.percentMinesFlagged());
 
       if (cellPct !== this._oldCellPct) {
-        cellDt = Math.abs(cellPct - this._oldCellPct) * 150;
-        this.$cellsStatusBar.animate({width: formatPct(cellPct)}, cellDt);
+        this.$cellsStatusBar.css({width: formatPct(cellPct)});
         this._oldCellPct = cellPct;
       }
 
