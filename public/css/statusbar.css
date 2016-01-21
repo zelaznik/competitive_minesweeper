@@ -44,7 +44,21 @@
   overflow: hidden;
 }
 
-.meter > span:after, .animate > span > span {
+body:not(.success):not(.failure) .meter > span:after,
+body:not(.success):not(.failure) .animate > span > span {
+  -webkit-animation: move 2s linear infinite;
+}
+
+body.success .meter > span:after,
+body.failure .meter > span:after,
+body.success .animate > span > span,
+body.failure .animate > span > span {
+  -webkit-animation-play-state: paused; /* Chrome, Safari, Opera */
+  animation-play-state: paused;
+}
+
+body .meter > span:after,
+body .animate > span > span {
   content: "";
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
@@ -70,7 +84,7 @@
   z-index: 1;
   -webkit-background-size: 50px 50px;
   -moz-background-size: 50px 50px;
-  -webkit-animation: move 2s linear infinite;
+
      -webkit-border-top-right-radius: 8px;
   -webkit-border-bottom-right-radius: 8px;
          -moz-border-radius-topright: 8px;

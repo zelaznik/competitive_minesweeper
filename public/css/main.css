@@ -24,6 +24,15 @@ body.failure {
   transition: background-image 0.5s ease;
 }
 
+body.success .meter > span,
+body.failure .meter > span {
+  -webkit-animation: none; /* move 2s linear infinite; */
+  -moz-animation-name: none;
+  -webkit-animation-name: none;
+  -ms-animation-name: none;
+  animation-name: none;
+}
+
 body.failure #cssmenu {
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
