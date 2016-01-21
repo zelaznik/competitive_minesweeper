@@ -1,18 +1,14 @@
 # Competitive Minesweeper Online
 
-[Live Link][heroku]
-[heroku]: http://competitive-minesweeper.herokuapp.com
-
-[preview]: https://github.com/zelaznik/minesweeper_js/blob/master/_readme/preview.png
-![screenshot of expert game in progress][preview]
-
-[gatlin]: https://www.github.com/aegatlin
-[ms_league_live]: http://www.minesweeperleague.com
-[ms_league_github]: https://github.com/aegatlin/minesweeper-league
+<a href="http://competitive-minesweeper.herokuapp.com" target="_blank">
+<img src="https://github.com/zelaznik/minesweeper_js/blob/master/_readme/preview.png" alt="screenshot of expert player-vs-compter game in progress with link to live page"></a>
 
 ## Overview
-- Clone of the classic Windows logic game.  Can be played either solo, or against a computer.
-- The solo game is a pixel perfect clone of the Windows implementation.
+- Clone of the classic Windows logic game, with the added ability to play against a computer.
+- A human player sees their board on the left and their oppponent's on the right.
+- A player wins when: a) they clear ther own board first, or b) their opponent clicks on a mine.
+- The display of each player's game is a pixel perfect clone of the classic Windows version.
+
 - The underlying code is in HTML, CSS, and Javascript.
 - Original idea from <a href="https://www.github.com/aegatlin" target="_blank">Austin Gatlin</a>'s "Minesweeper League" ( <a href="http://www.minesweeperleague.com" target="_blank">live</a> , <a href="https://www.github.com/aegatlin/minesweeper-league" target="_blank">github</a> ).
 
