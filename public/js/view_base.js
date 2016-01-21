@@ -34,7 +34,7 @@
     gameType: window.Game,
 
     addListeners: function(options) {
-      // Do nothing.  This method is a placeholder to allow overriding in base classe
+      console.log("Calling base addListeners event for " + this.constructor.name + ".");
     },
 
     storeSettings: function(options) {
