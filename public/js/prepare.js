@@ -12,7 +12,6 @@
         for (var j=0; j<choices.length; j++) {
           choices[j].classList.remove('active');
         }
-
         e.currentTarget.classList.add('active');
         views.forEach(function(view) {
           view.reset({level: levelName});

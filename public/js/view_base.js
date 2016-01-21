@@ -26,6 +26,7 @@
     }
   };
 
+  View.statusBarSpeed = 300;
   View.dt = 0.05;
 
   View.prototype = ({
@@ -123,7 +124,7 @@
 
       this.$minesStatusBar.removeClass('active');
       this.$cellsStatusBar.removeClass('active');
-      this.updateStatusBars();
+      this.updateStatusBars(0);
     },
 
     reset: function(newOptions) {
@@ -245,21 +246,33 @@
       this.drawTimer();
     },
 
-    resetStatusBars: function() {
-      this.$cellsStatusBar.animate({width: formatPct(0)}, 300);
-      this.$minesStatusBar.animate({width: formatPct(0)}, 300);
+    resetStatusBars: function(callback) {
+      callback = callback || function() {};
+      this.updateStatusBars({millisec: 0, callback: callback});
     },
 
-    updateStatusBars: function(millisec) {
-      var cellPct = Math.min(1, this.game.percentCellsSwept());
-      var minePct = Math.min(1, this.game.percentMinesFlagged());
+    updateStatusBars: function(options) {
+      var millisec, cellPct, minePct, callback;
+      options = options || {};
+
+      millisec = options.millisec || View.statusBarSpeed;
+      callback = options.callback || function() {};
+      if (options.defaultValue === undefined) {
+        cellPct = Math.min(1, this.game.percentCellsSwept());
+        minePct = Math.min(1, this.game.percentMinesFlagged());
+
+      } else {
+        cellPct = options.defaultValue;
+        minePct = options.defaultValue;
+      }
 
       if (cellPct !== this._oldCellPct) {
-        updatePct(this.$cellsStatusBar, cellPct, 300);
+        updatePct(this.$cellsStatusBar, cellPct, millisec, callback);
         this._oldCellPct = cellPct;
       }
+
       if (minePct !== this._oldMinePct) {
-        updatePct(this.$minesStatusBar, minePct, 300);
+        updatePct(this.$minesStatusBar, minePct, millisec, callback);
         this._oldMinePct = minePct;
       }
     },
