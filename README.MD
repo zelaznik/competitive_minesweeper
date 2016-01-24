@@ -1,6 +1,6 @@
 # Competitive Minesweeper Online
 
-<a href="http://competitive-minesweeper.herokuapp.com" target="_blank">
+<a href="http://competitive-minesweeper.com" target="_blank">
 <img src="https://github.com/zelaznik/minesweeper_js/blob/master/_readme/preview.png" height="375" width="600" 
 alt="screenshot of expert player-vs-compter game in progress with link to live page"></a>
 
